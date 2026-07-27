@@ -1,9 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import RootLayout from './layouts/RootLayout';
-
-// Placeholder for Pages
-const Home = () => <div className="p-10 text-2xl font-serif text-primary">Home Page</div>;
+import Home from './pages/Home';
 
 function App() {
   return (
