@@ -1,9 +1,32 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FaCalendarCheck, FaImages } from 'react-icons/fa';
+import { FaCalendarCheck, FaImages, FaRing, FaLightbulb, FaCamera } from 'react-icons/fa';
+import SectionHeading from '../components/SectionHeading';
+import ServiceCard from '../components/ServiceCard';
 
 const Home = () => {
+  const highlightServices = [
+    {
+      title: "Wedding Decoration",
+      description: "Transform your special day into a fairy tale with our premium wedding decoration services, featuring elegant florals and luxurious setups.",
+      image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80",
+      icon: <FaRing size={24} />
+    },
+    {
+      title: "Tent & Light Setup",
+      description: "Spectacular tent layouts combined with mesmerizing lighting to create the perfect ambiance for evening celebrations and receptions.",
+      image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      icon: <FaLightbulb size={24} />
+    },
+    {
+      title: "Stage Decoration",
+      description: "Make a statement with our custom-designed stages that serve as the perfect focal point for the bride, groom, and special guests.",
+      image: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      icon: <FaCamera size={24} />
+    }
+  ];
+
   return (
     <>
       <Helmet>
@@ -63,13 +86,34 @@ const Home = () => {
       </section>
 
       {/* Services Highlight */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-serif text-[#1F2937] font-bold mb-6">Our Services</h2>
-          <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-16"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-             Detailed services will be implemented here. We offer a comprehensive range of decoration and event management services tailored to your specific needs.
-          </p>
+      <section className="py-24 bg-[#FAFAFA]">
+        <div className="container mx-auto px-4">
+          <SectionHeading 
+            title="Our Premium Services" 
+            subtitle="We offer a comprehensive range of decoration and event management services tailored to your specific needs, ensuring every detail is perfect."
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {highlightServices.map((service, index) => (
+              <ServiceCard 
+                key={index}
+                title={service.title}
+                description={service.description}
+                image={service.image}
+                icon={service.icon}
+                delay={index * 0.2}
+              />
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link 
+              to="/services" 
+              className="inline-block border-2 border-[#C8102E] text-[#C8102E] hover:bg-[#C8102E] hover:text-white px-8 py-3 rounded-full font-medium transition-colors"
+            >
+              View All Services
+            </Link>
+          </div>
         </div>
       </section>
     </>
