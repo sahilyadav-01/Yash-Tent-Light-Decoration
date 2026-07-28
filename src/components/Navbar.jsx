@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiMenu, FiX, FiMoon, FiSun, FiGlobe, FiUser } from 'react-icons/fi';
+import { FiMenu, FiX, FiMoon, FiSun, FiGlobe, FiUser, FiSearch } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../../store/useAuthStore';
 import { useThemeStore } from '../../store/useThemeStore';
+import GlobalSearch from './common/GlobalSearch';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const { t, i18n } = useTranslation();
@@ -38,38 +40,49 @@ const Navbar = () => {
   ];
 
   return (
-    <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled || !isHome ? 'bg-white dark:bg-gray-900 shadow-md py-3' : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="flex flex-col">
-          <span className={`text-2xl font-serif font-bold ${scrolled || !isHome ? 'text-[#C8102E]' : 'text-white'}`}>
-            Yash Tent
-          </span>
-          <span className={`text-xs tracking-wider ${scrolled || !isHome ? 'text-gray-600 dark:text-gray-400' : 'text-gray-200'}`}>
-            & Light Decoration
-          </span>
-        </Link>
+    <>
+      <GlobalSearch isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <header
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          scrolled || !isHome ? 'bg-white dark:bg-gray-900 shadow-md py-3' : 'bg-transparent py-5'
+        }`}
+      >
+        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
+          {/* Logo */}
+          <Link to="/" className="flex flex-col">
+            <span className={`text-2xl font-serif font-bold ${scrolled || !isHome ? 'text-[#C8102E]' : 'text-white'}`}>
+              Yash Tent
+            </span>
+            <span className={`text-xs tracking-wider ${scrolled || !isHome ? 'text-gray-600 dark:text-gray-400' : 'text-gray-200'}`}>
+              & Light Decoration
+            </span>
+          </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`font-medium hover:text-[#D4AF37] transition-colors ${
-                scrolled || !isHome ? 'text-[#1F2937] dark:text-gray-200' : 'text-white'
-              } ${location.pathname === link.path ? 'text-[#D4AF37]' : ''}`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          
-          <div className="flex items-center gap-4 ml-4 border-l border-gray-300 pl-4 dark:border-gray-700">
-            {/* Lang Toggle */}
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`font-medium hover:text-[#D4AF37] transition-colors ${
+                  scrolled || !isHome ? 'text-[#1F2937] dark:text-gray-200' : 'text-white'
+                } ${location.pathname === link.path ? 'text-[#D4AF37]' : ''}`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            
+            <div className="flex items-center gap-4 ml-4 border-l border-gray-300 pl-4 dark:border-gray-700">
+              {/* Search Toggle */}
+              <button 
+                onClick={() => setIsSearchOpen(true)}
+                className={`text-xl hover:text-[#D4AF37] transition-colors ${scrolled || !isHome ? 'text-gray-600 dark:text-gray-300' : 'text-white'}`}
+                title="Search"
+              >
+                <FiSearch />
+              </button>
+
+              {/* Lang Toggle */}
             <button 
               onClick={changeLanguage}
               className={`text-xl hover:text-[#D4AF37] transition-colors ${scrolled || !isHome ? 'text-gray-600 dark:text-gray-300' : 'text-white'}`}
@@ -183,7 +196,8 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+      </header>
+    </>
   );
 };
 

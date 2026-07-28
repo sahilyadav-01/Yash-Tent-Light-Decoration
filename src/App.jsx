@@ -11,6 +11,7 @@ import Testimonials from './pages/Testimonials';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Booking from './pages/Booking';
+import Calculator from './pages/Calculator';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
       { path: "faq", element: <FAQ /> },
       { path: "contact", element: <Contact /> },
       { path: "booking", element: <Booking /> },
+      { path: "calculator", element: <Calculator /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       { path: "forgot-password", element: <ForgotPassword /> },
