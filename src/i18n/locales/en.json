@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "gallery": "Gallery",
+    "packages": "Packages",
+    "contact": "Contact",
+    "book_now": "Book Now",
+    "login": "Login",
+    "dashboard": "Dashboard",
+    "portfolio": "Portfolio"
+  },
+  "hero": {
+    "title": "Creating Memorable Celebrations",
+    "subtitle": "Premium Tent, Light & Wedding Decoration Services"
+  }
+}
