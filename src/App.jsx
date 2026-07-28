@@ -11,6 +11,10 @@ import Testimonials from './pages/Testimonials';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Booking from './pages/Booking';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import ForgotPassword from './pages/auth/ForgotPassword';
+import { ProtectedRoute, AdminRoute } from './components/auth/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +31,17 @@ const router = createBrowserRouter([
       { path: "faq", element: <FAQ /> },
       { path: "contact", element: <Contact /> },
       { path: "booking", element: <Booking /> },
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
+      { path: "forgot-password", element: <ForgotPassword /> },
+      { 
+        path: "dashboard", 
+        element: <ProtectedRoute><div className="p-20 text-center text-2xl dark:text-white">Customer Dashboard (Coming Soon)</div></ProtectedRoute> 
+      },
+      { 
+        path: "admin", 
+        element: <AdminRoute><div className="p-20 text-center text-2xl dark:text-white">Admin Dashboard (Coming Soon)</div></AdminRoute> 
+      },
     ],
   },
 ]);
