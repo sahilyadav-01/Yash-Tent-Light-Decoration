@@ -1,25 +1,40 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import WhyChooseUs from './pages/WhyChooseUs';
 import Services from './pages/Services';
+import Gallery from './pages/Gallery';
+import Packages from './pages/Packages';
+import Testimonials from './pages/Testimonials';
+import FAQ from './pages/FAQ';
+import Contact from './pages/Contact';
+import Booking from './pages/Booking';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "why-choose-us", element: <WhyChooseUs /> },
+      { path: "services", element: <Services /> },
+      { path: "gallery", element: <Gallery /> },
+      { path: "packages", element: <Packages /> },
+      { path: "testimonials", element: <Testimonials /> },
+      { path: "faq", element: <FAQ /> },
+      { path: "contact", element: <Contact /> },
+      { path: "booking", element: <Booking /> },
+    ],
+  },
+]);
 
 function App() {
   return (
     <HelmetProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<RootLayout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="why-choose-us" element={<WhyChooseUs />} />
-            <Route path="services" element={<Services />} />
-            {/* Add other routes here */}
-          </Route>
-        </Routes>
-      </Router>
+      <RouterProvider router={router} />
     </HelmetProvider>
   );
 }
