@@ -63,7 +63,17 @@ const MOCK_SERVICES = {
 
 const ServiceDetails = () => {
   const { id } = useParams();
-  const service = MOCK_SERVICES[id] || MOCK_SERVICES['wedding-decoration'];
+  const service = MOCK_SERVICES[id];
+
+  if (!service) {
+    return (
+      <div className="pt-40 pb-20 text-center min-h-screen bg-gray-50 dark:bg-gray-900">
+        <h2 className="text-3xl font-bold text-[#C8102E] mb-4">Service Not Found</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-8">The service you are looking for does not exist.</p>
+        <Link to="/services" className="bg-[#C8102E] text-white px-8 py-3 rounded-full font-medium hover:bg-red-800 transition-colors">Back to Services</Link>
+      </div>
+    );
+  }
 
   return (
     <>
