@@ -11,7 +11,7 @@ export const generateQuotationPDF = (booking) => {
   
   doc.setFontSize(10);
   doc.setTextColor(100, 100, 100);
-  doc.text('123 Celebration Avenue, Phase 1, City Name, 123456', 14, 28);
+  doc.text('Palawa, Rajasthan 301706', 14, 28);
   doc.text('Sumit (kuku) Yadav: +91 9680709044 | Surendar kumar: +91 9818222764', 14, 34);
   
   // Quotation Title

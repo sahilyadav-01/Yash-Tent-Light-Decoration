@@ -62,9 +62,9 @@ const Footer = () => {
               <span className="absolute -bottom-1 left-0 w-1/2 h-0.5 bg-[#D4AF37]"></span>
             </h4>
             <ul className="space-y-4 mt-4">
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 text-gray-400">
                 <FaMapMarkerAlt className="text-[#C8102E] mt-1 shrink-0" />
-                <span className="text-sm">123 Celebration Avenue, City Name, State 123456</span>
+                <span className="text-sm">Palawa, Rajasthan 301706</span>
               </li>
               <li className="flex items-start gap-3 text-gray-400">
                 <FaPhoneAlt className="text-[#D4AF37] mt-1" />

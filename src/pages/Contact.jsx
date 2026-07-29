@@ -66,7 +66,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-[#1F2937]">Office Address</h4>
-                      <p className="text-gray-600">123 Celebration Avenue, Phase 1, City Name, State 123456</p>
+                      <p className="text-gray-600">Palawa, Rajasthan 301706</p>
                     </div>
                   </li>
                   
@@ -217,7 +217,7 @@ const Contact = () => {
       {/* Google Map */}
       <section className="h-96 w-full relative">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113911.39343360293!2d80.86591669222441!3d26.848596489370603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          src="https://maps.google.com/maps?q=palawa%20rajasthan%20301706&t=&z=13&ie=UTF8&iwloc=&output=embed"
           className="absolute inset-0 w-full h-full border-0"
           allowFullScreen="" 
           loading="lazy" 
