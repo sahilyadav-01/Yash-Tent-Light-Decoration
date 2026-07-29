@@ -217,7 +217,7 @@ const Contact = () => {
       {/* Google Map */}
       <section className="h-96 w-full relative">
         <iframe 
-          src="https://maps.google.com/maps?q=palawa%20rajasthan%20301706&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          src="https://maps.google.com/maps?q=XGP2%2BQMJ%2C%20Palawa%2C%20Rajasthan%20301706%2C%20India&t=&z=14&ie=UTF8&iwloc=&output=embed"
           className="absolute inset-0 w-full h-full border-0"
           allowFullScreen="" 
           loading="lazy" 
