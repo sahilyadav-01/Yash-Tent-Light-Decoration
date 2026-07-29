@@ -17,6 +17,12 @@ import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import { ProtectedRoute, AdminRoute } from './components/auth/ProtectedRoute';
 
+import CustomerDashboard from './pages/customer/Dashboard';
+import AdminDashboard from './pages/admin/Dashboard';
+
+import Portfolio from './pages/portfolio/Portfolio';
+import ServiceDetails from './pages/services/ServiceDetails';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +32,8 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "why-choose-us", element: <WhyChooseUs /> },
       { path: "services", element: <Services /> },
+      { path: "services/:id", element: <ServiceDetails /> },
+      { path: "portfolio", element: <Portfolio /> },
       { path: "gallery", element: <Gallery /> },
       { path: "packages", element: <Packages /> },
       { path: "testimonials", element: <Testimonials /> },
@@ -38,11 +46,11 @@ const router = createBrowserRouter([
       { path: "forgot-password", element: <ForgotPassword /> },
       { 
         path: "dashboard", 
-        element: <ProtectedRoute><div className="p-20 text-center text-2xl dark:text-white">Customer Dashboard (Coming Soon)</div></ProtectedRoute> 
+        element: <ProtectedRoute><CustomerDashboard /></ProtectedRoute> 
       },
       { 
         path: "admin", 
-        element: <AdminRoute><div className="p-20 text-center text-2xl dark:text-white">Admin Dashboard (Coming Soon)</div></AdminRoute> 
+        element: <AdminRoute><AdminDashboard /></AdminRoute> 
       },
     ],
   },

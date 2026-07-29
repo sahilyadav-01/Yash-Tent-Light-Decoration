@@ -3,8 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { FiMenu, FiX, FiMoon, FiSun, FiGlobe, FiUser, FiSearch } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { useAuthStore } from '../../store/useAuthStore';
-import { useThemeStore } from '../../store/useThemeStore';
+import { useAuthStore } from '../store/useAuthStore';
+import { useThemeStore } from '../store/useThemeStore';
 import GlobalSearch from './common/GlobalSearch';
 
 const Navbar = () => {

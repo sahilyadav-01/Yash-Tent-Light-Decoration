@@ -4,30 +4,44 @@ import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
+import { useBookingStore } from '../store/useBookingStore';
+import { useAuthStore } from '../store/useAuthStore';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const Booking = () => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const addBooking = useBookingStore(state => state.addBooking);
+  const { isAuthenticated, user } = useAuthStore();
+  const navigate = useNavigate();
 
   const watchEventType = watch("eventType", "Wedding");
 
   const onSubmit = async (data) => {
+    if (!isAuthenticated) {
+      toast.error('Please login to make a booking.');
+      navigate('/login', { state: { from: '/booking' } });
+      return;
+    }
+
     setIsSubmitting(true);
     try {
-      await emailjs.send(
-        'service_dummy', 
-        'template_dummy', 
-        data, 
-        'public_key_dummy'
-      );
+      // Mocking EmailJS send
+      // await emailjs.send('service_dummy', 'template_dummy', data, 'public_key_dummy');
+      
+      // Add to store
+      addBooking({
+        ...data,
+        customerEmail: user.email,
+      });
+
       setIsSuccess(true);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
-      console.error('EmailJS Error:', error);
-      // Faking success for demo purposes
-      setIsSuccess(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      console.error('Error:', error);
+      toast.error('Something went wrong!');
     } finally {
       setIsSubmitting(false);
     }

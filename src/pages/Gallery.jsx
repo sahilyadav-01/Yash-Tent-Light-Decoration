@@ -1,120 +1,133 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaTimes } from 'react-icons/fa';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
+import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 import SectionHeading from '../components/SectionHeading';
 
+const categories = ['All', 'Weddings', 'Corporate', 'Birthdays', 'Lighting'];
+
+const galleryItems = [
+  { id: 1, category: 'Weddings', src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Royal Wedding Setup' },
+  { id: 2, category: 'Lighting', src: 'https://images.unsplash.com/photo-1549488344-c6a6fcd8b88d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Fairy Lights Pathway' },
+  { id: 3, category: 'Corporate', src: 'https://images.unsplash.com/photo-1505369711681-30db00438676?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Annual Gala Stage' },
+  { id: 4, category: 'Weddings', src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Floral Mandap' },
+  { id: 5, category: 'Birthdays', src: 'https://images.unsplash.com/photo-1530103862676-de88921806a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Kids Birthday Theme' },
+  { id: 6, category: 'Lighting', src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Event Production Lights' },
+  { id: 7, category: 'Weddings', src: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Reception Entry' },
+  { id: 8, category: 'Corporate', src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Product Launch Setup' },
+  { id: 9, category: 'Birthdays', src: 'https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Balloon Arch Decor' },
+];
+
 const Gallery = () => {
-  const [filter, setFilter] = useState('All');
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [visibleCount, setVisibleCount] = useState(6);
 
-  const categories = ['All', 'Wedding', 'Stage', 'Lighting', 'Tent', 'Flower'];
+  const filteredItems = activeCategory === 'All' 
+    ? galleryItems 
+    : galleryItems.filter(item => item.category === activeCategory);
 
-  const images = [
-    { id: 1, category: 'Wedding', src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80', alt: 'Wedding setup 1' },
-    { id: 2, category: 'Stage', src: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80', alt: 'Stage design' },
-    { id: 3, category: 'Lighting', src: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1140&q=80', alt: 'Fairy lights' },
-    { id: 4, category: 'Tent', src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80', alt: 'Luxury Tent' },
-    { id: 5, category: 'Flower', src: 'https://images.unsplash.com/photo-1523688882641-9c6e39266730?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80', alt: 'Floral design' },
-    { id: 6, category: 'Wedding', src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80', alt: 'Wedding setup 2' },
-    { id: 7, category: 'Stage', src: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80', alt: 'Stage 2' },
-    { id: 8, category: 'Tent', src: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80', alt: 'Event tent' },
-    { id: 9, category: 'Flower', src: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80', alt: 'Table flowers' },
-  ];
+  const displayedItems = filteredItems.slice(0, visibleCount);
 
-  const filteredImages = filter === 'All' ? images : images.filter(img => img.category === filter);
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + 6);
+  };
 
   return (
     <>
       <Helmet>
-        <title>Gallery | Yash Tent & Light Decoration</title>
-        <meta name="description" content="View our portfolio of spectacular wedding decorations, tent setups, and lighting arrangements." />
+        <title>Our Gallery | Yash Tent & Light Decoration</title>
+        <meta name="description" content="Explore our beautiful event setups, weddings, corporate events, and lighting designs." />
       </Helmet>
 
-      <section className="pt-32 pb-20 bg-[#FAFAFA]">
+      <section className="pt-32 pb-20 bg-[#FAFAFA] dark:bg-gray-900 transition-colors min-h-screen">
         <div className="container mx-auto px-4">
           <SectionHeading 
-            title="Our Gallery" 
-            subtitle="A glimpse into the magical moments we have created for our clients."
+            title="Our Recent Work" 
+            subtitle="Browse through our portfolio of beautifully executed events and discover what we can do for you."
           />
 
-          {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map(cat => (
+          {/* Before / After Section */}
+          <div className="max-w-4xl mx-auto mt-12 mb-20 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-xl">
+            <h3 className="text-xl font-bold text-center mb-6 dark:text-white">Before & After Magic</h3>
+            <div className="rounded-xl overflow-hidden shadow-inner h-[400px]">
+              <ReactCompareSlider
+                itemOne={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Before" className="grayscale opacity-60 object-cover w-full h-full" />}
+                itemTwo={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="After" className="object-cover w-full h-full" />}
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+
+          {/* Categories */}
+          <div className="flex flex-wrap justify-center gap-4 mt-8 mb-12">
+            {categories.map((category) => (
               <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                  filter === cat 
-                    ? 'bg-[#C8102E] text-white shadow-lg' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                key={category}
+                onClick={() => {
+                  setActiveCategory(category);
+                  setVisibleCount(6);
+                }}
+                className={`px-6 py-2 rounded-full font-medium transition-all ${
+                  activeCategory === category
+                    ? 'bg-[#C8102E] text-white shadow-md transform scale-105'
+                    : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
-                {cat}
+                {category}
               </button>
             ))}
           </div>
 
           {/* Masonry Grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          <motion.div layout className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 max-w-7xl mx-auto">
             <AnimatePresence>
-              {filteredImages.map((img) => (
+              {displayedItems.map((item) => (
                 <motion.div
-                  key={img.id}
+                  key={item.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  className="break-inside-avoid relative group cursor-pointer overflow-hidden rounded-xl shadow-md"
-                  onClick={() => setSelectedImage(img)}
+                  className="break-inside-avoid relative group overflow-hidden rounded-xl shadow-lg bg-white dark:bg-gray-800"
                 >
-                  <img 
-                    src={img.src} 
-                    alt={img.alt} 
-                    loading="lazy"
-                    className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-serif text-xl border-b-2 border-[#D4AF37] pb-1">
-                      {img.category}
-                    </span>
+                  <Zoom>
+                    <img 
+                      src={item.src} 
+                      alt={item.title} 
+                      className="w-full h-auto object-cover"
+                    />
+                  </Zoom>
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pointer-events-none opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
+                    <h4 className="text-white font-bold text-lg">{item.title}</h4>
+                    <span className="text-[#D4AF37] text-sm font-medium">{item.category}</span>
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
-          </div>
+          </motion.div>
+
+          {/* Load More Button */}
+          {visibleCount < filteredItems.length && (
+            <div className="text-center mt-12">
+              <button 
+                onClick={handleLoadMore}
+                className="bg-transparent border-2 border-[#C8102E] text-[#C8102E] hover:bg-[#C8102E] hover:text-white px-8 py-3 rounded-full font-bold transition-colors"
+              >
+                Load More Images
+              </button>
+            </div>
+          )}
+          
+          {filteredItems.length === 0 && (
+            <div className="text-center text-gray-500 py-20">
+              <p>No images found in this category.</p>
+            </div>
+          )}
         </div>
       </section>
-
-      {/* Lightbox */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
-            onClick={() => setSelectedImage(null)}
-          >
-            <button 
-              className="absolute top-6 right-6 text-white hover:text-[#C8102E] transition-colors z-50 text-3xl"
-              onClick={() => setSelectedImage(null)}
-            >
-              <FaTimes />
-            </button>
-            <motion.img
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              src={selectedImage.src}
-              alt={selectedImage.alt}
-              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };
