@@ -76,8 +76,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-[#1F2937]">Phone / WhatsApp</h4>
-                      <p className="text-gray-600">+91 98765 43210</p>
-                      <p className="text-gray-600">+91 87654 32109</p>
+                      <p className="text-gray-600">Sumit (kuku) Yadav: +91 9680709044</p>
+                      <p className="text-gray-600">Surendar kumar: +91 9818222764</p>
                     </div>
                   </li>
                   
@@ -147,7 +147,7 @@ const Contact = () => {
                       <input 
                         {...register("phone", { required: "Phone number is required" })}
                         className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none transition-colors`}
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 9680709044"
                       />
                       {errors.phone && <span className="text-red-500 text-xs mt-1">{errors.phone.message}</span>}
                     </div>

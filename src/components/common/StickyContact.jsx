@@ -15,14 +15,14 @@ const StickyContact = () => {
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             className="absolute bottom-16 right-0 flex flex-col gap-3 mb-2"
           >
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white dark:bg-gray-800 p-2 pr-4 rounded-full shadow-lg group hover:bg-[#25D366] transition-colors">
+            <a href="https://wa.me/919680709044" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white dark:bg-gray-800 p-2 pr-4 rounded-full shadow-lg group hover:bg-[#25D366] transition-colors">
               <div className="w-10 h-10 bg-[#25D366] text-white rounded-full flex items-center justify-center">
                 <FaWhatsapp size={20} />
               </div>
               <span className="font-medium text-gray-700 dark:text-gray-200 group-hover:text-white whitespace-nowrap">Chat on WhatsApp</span>
             </a>
             
-            <a href="tel:+919876543210" className="flex items-center gap-3 bg-white dark:bg-gray-800 p-2 pr-4 rounded-full shadow-lg group hover:bg-[#1F2937] transition-colors">
+            <a href="tel:+919680709044" className="flex items-center gap-3 bg-white dark:bg-gray-800 p-2 pr-4 rounded-full shadow-lg group hover:bg-[#1F2937] transition-colors">
               <div className="w-10 h-10 bg-[#1F2937] text-white rounded-full flex items-center justify-center">
                 <FaPhone size={18} />
               </div>
