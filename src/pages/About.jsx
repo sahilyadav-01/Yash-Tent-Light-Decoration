@@ -5,7 +5,7 @@ import { FaAward, FaUsers, FaThumbsUp, FaRegMoneyBillAlt } from 'react-icons/fa'
 
 const About = () => {
   const features = [
-    { icon: <FaAward size={30} />, title: "15+ Years Experience", desc: "Delivering excellence in event management since 2008." },
+    { icon: <FaAward size={30} />, title: "1+ Years Experience", desc: "Delivering excellence in event management since 2025." },
     { icon: <FaUsers size={30} />, title: "Professional Team", desc: "Highly skilled decorators and event planners at your service." },
     { icon: <FaRegMoneyBillAlt size={30} />, title: "Affordable Packages", desc: "Premium decorations that fit within your budget constraints." },
     { icon: <FaThumbsUp size={30} />, title: "100% Satisfaction", desc: "We ensure every detail meets your highest expectations." }
