@@ -66,9 +66,12 @@ const Footer = () => {
                 <FaMapMarkerAlt className="text-[#C8102E] mt-1 shrink-0" />
                 <span className="text-sm">123 Celebration Avenue, City Name, State 123456</span>
               </li>
-              <li className="flex items-center gap-3">
-                <FaPhoneAlt className="text-[#C8102E] shrink-0" />
-                <span className="text-sm">+91 98765 43210</span>
+              <li className="flex items-start gap-3 text-gray-400">
+                <FaPhoneAlt className="text-[#D4AF37] mt-1" />
+                <div className="flex flex-col">
+                  <span className="text-sm">Sumit (kuku) Yadav: +91 9680709044</span>
+                  <span className="text-sm">Surendar kumar: +91 9818222764</span>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-[#C8102E] shrink-0" />
