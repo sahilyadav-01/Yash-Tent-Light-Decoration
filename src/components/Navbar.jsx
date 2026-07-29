@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FiMenu, FiX, FiMoon, FiSun, FiGlobe, FiUser, FiSearch } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -12,11 +12,18 @@ const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const { isAuthenticated, user, logout } = useAuthStore();
   const { theme, toggleTheme } = useThemeStore();
 
   const isHome = location.pathname === '/';
+
+  const handleLogout = () => {
+    logout();
+    setIsOpen(false);
+    navigate('/login');
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -106,17 +113,19 @@ const Navbar = () => {
                 <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className={`text-xl hover:text-[#D4AF37] transition-colors ${scrolled || !isHome ? 'text-gray-600 dark:text-gray-300' : 'text-white'}`}>
                   <FiUser />
                 </Link>
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-xl py-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto">
-                  <div className="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
-                    <p className="text-sm font-bold text-gray-900 dark:text-white truncate">{user.name}</p>
-                    <p className="text-xs text-gray-500 truncate">{user.role}</p>
+                <div className="absolute top-full right-0 pt-2 w-48 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto">
+                  <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl py-2">
+                    <div className="px-4 py-2 border-b border-gray-100 dark:border-gray-700">
+                      <p className="text-sm font-bold text-gray-900 dark:text-white truncate">{user.name}</p>
+                      <p className="text-xs text-gray-500 truncate">{user.role}</p>
+                    </div>
+                    <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      {t('nav.dashboard')}
+                    </Link>
+                    <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-sm text-[#C8102E] hover:bg-red-50 dark:hover:bg-red-900/20">
+                      Logout
+                    </button>
                   </div>
-                  <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
-                    {t('nav.dashboard')}
-                  </Link>
-                  <button onClick={logout} className="w-full text-left px-4 py-2 text-sm text-[#C8102E] hover:bg-red-50 dark:hover:bg-red-900/20">
-                    Logout
-                  </button>
                 </div>
               </div>
             ) : (
@@ -176,7 +185,7 @@ const Navbar = () => {
                 <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} onClick={() => setIsOpen(false)} className="text-[#1F2937] dark:text-white font-medium text-xl">
                   {t('nav.dashboard')}
                 </Link>
-                <button onClick={() => { logout(); setIsOpen(false); }} className="text-[#C8102E] font-medium text-xl">
+                <button onClick={handleLogout} className="text-[#C8102E] font-medium text-xl">
                   Logout
                 </button>
               </>
