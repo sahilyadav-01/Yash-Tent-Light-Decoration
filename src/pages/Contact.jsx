@@ -66,7 +66,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-[#1F2937]">Office Address</h4>
-                      <p className="text-gray-600">Palawa, Rajasthan 301706</p>
+                      <p className="text-gray-600">Near S'K One Tech Support, Palawa, Rajasthan 301706</p>
                     </div>
                   </li>
                   
