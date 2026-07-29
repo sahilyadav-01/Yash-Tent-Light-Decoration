@@ -1,5 +1,5 @@
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 
 export const generateQuotationPDF = (booking) => {
   const doc = new jsPDF();
@@ -38,7 +38,7 @@ export const generateQuotationPDF = (booking) => {
     ['3', 'Lighting Assembly', '1', 'Included'],
   ];
 
-  doc.autoTable({
+  autoTable(doc, {
     startY: 100,
     head: [['S.No', 'Description of Service', 'Qty', 'Amount (INR)']],
     body: tableData,
