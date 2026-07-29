@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { FaCalendarCheck, FaImages, FaRing, FaLightbulb, FaCamera } from 'react-icons/fa';
 import SectionHeading from '../components/SectionHeading';
 import ServiceCard from '../components/ServiceCard';
 
 const Home = () => {
+  const { t } = useTranslation();
   const highlightServices = [
     {
       title: "Wedding Decoration",
@@ -51,7 +53,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl lg:text-8xl font-serif text-white font-bold mb-6 drop-shadow-2xl leading-tight"
           >
-            Creating Memorable <span className="text-[#D4AF37]">Celebrations</span>
+            {t('hero.title')}
           </motion.h1>
           
           <motion.p 
@@ -60,7 +62,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-3xl text-gray-100 mb-12 font-light drop-shadow-md"
           >
-            Premium Tent, Light & Wedding Decoration Services
+            {t('hero.subtitle')}
           </motion.p>
           
           <motion.div 
