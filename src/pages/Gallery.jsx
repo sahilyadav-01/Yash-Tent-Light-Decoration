@@ -10,10 +10,10 @@ const categories = ['All', 'Weddings', 'Corporate', 'Birthdays', 'Lighting'];
 
 const galleryItems = [
   { id: 1, category: 'Weddings', src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Royal Wedding Setup' },
-  { id: 2, category: 'Lighting', src: 'https://images.unsplash.com/photo-1549488344-c6a6fcd8b88d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Fairy Lights Pathway' },
-  { id: 3, category: 'Corporate', src: 'https://images.unsplash.com/photo-1505369711681-30db00438676?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Annual Gala Stage' },
+  { id: 2, category: 'Lighting', src: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Fairy Lights Pathway' },
+  { id: 3, category: 'Corporate', src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Annual Gala Stage' },
   { id: 4, category: 'Weddings', src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Floral Mandap' },
-  { id: 5, category: 'Birthdays', src: 'https://images.unsplash.com/photo-1530103862676-de88921806a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Kids Birthday Theme' },
+  { id: 5, category: 'Birthdays', src: 'https://images.unsplash.com/photo-1464349153735-7db50ed83c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Kids Birthday Theme' },
   { id: 6, category: 'Lighting', src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Event Production Lights' },
   { id: 7, category: 'Weddings', src: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Reception Entry' },
   { id: 8, category: 'Corporate', src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', title: 'Product Launch Setup' },
