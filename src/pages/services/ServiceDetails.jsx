@@ -6,16 +6,58 @@ const MOCK_SERVICES = {
   'wedding-decoration': {
     title: 'Premium Wedding Decoration',
     price: 'Starting at ₹50,000',
-    description: 'Complete wedding setup including Mandap, Stage, Entrance, and Guest seating with floral themes.',
-    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    features: ['Custom Floral Mandap', 'Designer Stage Setup', 'Premium Lighting', 'Luxury Seating Arrangements']
+    description: 'Turn your wedding into an unforgettable fairy tale. We craft complete wedding setups including elegant Mandap, grand Stage, stunning Entrance arch, and luxurious guest seating — all tailored to your chosen theme.',
+    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    features: ['Custom Floral Mandap', 'Designer Stage Setup', 'Premium Lighting', 'Luxury Seating Arrangements', 'Entrance & Pathway Decoration', 'Bridal Car Decoration']
   },
-  'corporate-events': {
-    title: 'Corporate Event Setup',
-    price: 'Starting at ₹75,000',
-    description: 'Professional setup for conferences, product launches, and annual galas.',
-    image: 'https://images.unsplash.com/photo-1505369711681-30db00438676?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    features: ['LED Wall Setup', 'Line Array Sound', 'Corporate Branding', 'Stage & Trussing']
+  'tent-house': {
+    title: 'Tent House Setup',
+    price: 'Starting at ₹20,000',
+    description: 'Premium waterproof and air-conditioned tents available in a wide range of sizes and colors — from intimate gatherings to large-scale weddings and corporate events, for every season and weather.',
+    image: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    features: ['Waterproof & AC Tents', 'Multiple Size Options', 'Fast Installation', 'Sidewall & Flooring Included', 'Day & Night Events Covered', 'All-Season Ready']
+  },
+  'light-decoration': {
+    title: 'Light Decoration',
+    price: 'Starting at ₹15,000',
+    description: 'Create an atmosphere of pure magic with our mesmerizing lighting setups. From warm fairy lights to grand chandeliers, vibrant LED strips, and custom projection mapping — we illuminate every corner beautifully.',
+    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    features: ['LED Strip & Fairy Lights', 'Hanging Chandeliers', 'Colored Spotlights', 'Projection Mapping', 'Outdoor & Indoor Setups', 'Energy Efficient Fittings']
+  },
+  'stage-decoration': {
+    title: 'Stage Decoration',
+    price: 'Starting at ₹25,000',
+    description: 'Our designer stages become the heart of your event. With breathtaking floral backgrounds, artistic props, and specialized lighting, we build stages that command attention and make every moment picture-perfect.',
+    image: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    features: ['Floral Backdrop Design', 'Custom Theme Props', 'Sofa & Throne Seating', 'Professional Spotlight Rigging', 'Nameplate & Monogram', 'Photo-Ready Setup']
+  },
+  'flower-decoration': {
+    title: 'Flower Decoration',
+    price: 'Starting at ₹12,000',
+    description: 'Add natural elegance and fragrance to your celebration. We source the freshest imported and exotic flowers to craft stunning arrangements for table centrepieces, pathway garlands, mandap, and backdrops.',
+    image: 'https://images.unsplash.com/photo-1523688882641-9c6e39266730?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    features: ['Imported Flower Varieties', 'Table Centerpieces', 'Garland Pathways', 'Stage Floral Backdrop', 'Bridal Bouquet', 'Car & Carriage Florals']
+  },
+  'birthday-parties': {
+    title: 'Birthday & Parties',
+    price: 'Starting at ₹8,000',
+    description: 'Make every birthday unforgettable! From kids\' themed wonderlands to elegant adult celebrations, we design vibrant and personalized party setups with balloon arches, photo booths, and thematic décor.',
+    image: 'https://images.unsplash.com/photo-1464349153735-7db50ed83c84?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    features: ['Themed Decorations', 'Giant Balloon Arches', 'Photo Booth Setup', 'Birthday Banner & Backdrop', 'Cake Table Decor', 'Kids & Adults Themes']
+  },
+  'dj-sound-system': {
+    title: 'DJ & Sound System',
+    price: 'Starting at ₹18,000',
+    description: 'Fill your venue with crystal-clear sound and electrifying beats. We provide professional line-array speakers, powerful subwoofers, experienced DJs, and full live music arrangements to keep your guests dancing.',
+    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    features: ['Line Array Speaker System', 'Professional DJ Setup', 'Wireless Microphones', 'Live Band Arrangements', 'LED Dance Floor', 'Fog & Haze Machine']
+  },
+  'catering-setup': {
+    title: 'Catering Setup',
+    price: 'Starting at ₹30,000',
+    description: 'Complement your beautiful décor with an equally stunning dining experience. We set up elegant buffet counters, royal dining tables, premium cutlery, and live food stations that leave a lasting impression on every guest.',
+    image: 'https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    features: ['Buffet Counter Design', 'Royal Dining Table Setup', 'Premium Cutlery & Crockery', 'Live Food Stations', 'Beverage Counter', 'Staff & Service Management']
   }
 };
 
