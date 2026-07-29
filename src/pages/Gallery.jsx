@@ -53,7 +53,7 @@ const Gallery = () => {
             <h3 className="text-xl font-bold text-center mb-6 dark:text-white">Before & After Magic</h3>
             <div className="rounded-xl overflow-hidden shadow-inner h-[400px]">
               <ReactCompareSlider
-                itemOne={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Before" className="grayscale opacity-60 object-cover w-full h-full" />}
+                itemOne={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Before" className="object-cover w-full h-full" />}
                 itemTwo={<ReactCompareSliderImage src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="After" className="object-cover w-full h-full" />}
                 className="w-full h-full"
               />
