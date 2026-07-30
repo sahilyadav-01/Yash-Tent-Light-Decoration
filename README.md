@@ -256,10 +256,4 @@ This project is licensed under the terms of the [LICENSE](./LICENSE) file.
 
 **Author:** Sahil Yadav
 
-Built with ❤️ for **Yash Tent & Light Decoration**
-
-📍 Near S'K One Tech Support, Palawa, Rajasthan 301706
-📞 +91 9680709044 · +91 9818222764
-📧 info@yashtent.com
-
 </div>
