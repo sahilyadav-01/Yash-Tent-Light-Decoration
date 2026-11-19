@@ -37,6 +37,7 @@ const Gallery = () => {
           name="description"
           content="Explore our beautiful event setups, weddings, corporate events, lighting designs, and live video tours."
         />
+        <link rel="canonical" href="https://yash-tent-light-decoration.vercel.app/gallery" />
       </Helmet>
 
       <section className="pt-32 pb-20 bg-[#FAFAFA] dark:bg-gray-900 transition-colors min-h-screen">
