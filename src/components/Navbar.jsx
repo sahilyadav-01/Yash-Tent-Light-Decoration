@@ -57,20 +57,15 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center group py-0.5">
             <img 
               src={logoImg} 
-              alt="Yash Tent & Decoration Logo" 
-              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+              alt="Yash Tent & Decoration" 
+              className={`w-auto object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-md ${
+                scrolled || !isHome ? 'h-11 md:h-12' : 'h-14 md:h-16'
+              }`} 
             />
-            <div className="flex flex-col">
-              <span className={`text-xl md:text-2xl font-serif font-bold leading-tight ${scrolled || !isHome ? 'text-[#C8102E]' : 'text-white'}`}>
-                Yash Tent
-              </span>
-              <span className={`text-xs tracking-wider ${scrolled || !isHome ? 'text-gray-600 dark:text-gray-400' : 'text-gray-200'}`}>
-                & Light Decoration
-              </span>
-            </div>
+            <span className="sr-only">Yash Tent &amp; Light Decoration</span>
           </Link>
 
           {/* Desktop Nav */}

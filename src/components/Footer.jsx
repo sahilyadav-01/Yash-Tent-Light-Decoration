@@ -9,16 +9,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* About */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <Link to="/" className="inline-block mb-4 group">
               <img 
                 src={logoImg} 
-                alt="Yash Tent & Decoration Logo" 
-                className="h-12 w-auto object-contain bg-white/10 p-1 rounded-lg" 
+                alt="Yash Tent & Decoration" 
+                className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow" 
               />
-              <h3 className="text-xl font-serif text-white font-bold leading-tight">
-                Yash Tent &amp; Light Decoration
-              </h3>
-            </div>
+            </Link>
             <p className="mb-6 text-sm leading-relaxed text-gray-400">
               Making Every Celebration Grand. We provide premium tent, light, and wedding decoration services with a touch of elegance and tradition.
             </p>
