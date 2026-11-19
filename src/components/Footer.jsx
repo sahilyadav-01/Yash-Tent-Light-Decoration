@@ -78,10 +78,10 @@ const Footer = () => {
             <ul className="space-y-4 mt-4">
               <li className="flex items-start gap-3 text-gray-400">
                 <FaMapMarkerAlt className="text-[#C8102E] mt-1 shrink-0" />
-                <a 
-                  href="https://maps.app.goo.gl/T9Ys8mDRsYHeX9MC7" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://maps.app.goo.gl/T9Ys8mDRsYHeX9MC7"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm hover:text-[#D4AF37] transition-colors"
                 >
                   XGP2+QMJ, Palawa, Rajasthan 301706
