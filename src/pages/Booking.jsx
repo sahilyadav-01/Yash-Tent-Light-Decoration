@@ -50,8 +50,9 @@ const Booking = () => {
   return (
     <>
       <Helmet>
-        <title>Book Now | Yash Tent & Light Decoration</title>
-        <meta name="description" content="Book our premium tent, light, and event decoration services." />
+        <title>Book Event & Wedding Decoration | Yash Tent & Light Decoration</title>
+        <meta name="description" content="Book online for premium wedding decoration, tent houses, ambient LED lighting, and catering services in Palawa, Rajasthan." />
+        <link rel="canonical" href="https://yash-tent-light-decoration.vercel.app/booking" />
       </Helmet>
 
       <section className="pt-32 pb-20 bg-gray-900 text-white relative min-h-[50vh] flex items-center justify-center">

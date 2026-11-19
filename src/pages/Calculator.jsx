@@ -55,8 +55,9 @@ const Calculator = () => {
   return (
     <>
       <Helmet>
-        <title>Pricing Calculator | Yash Tent & Light Decoration</title>
-        <meta name="description" content="Calculate the estimated cost of your event decoration instantly." />
+        <title>Event & Wedding Decoration Cost Calculator | Instant Estimate</title>
+        <meta name="description" content="Calculate real-time estimates for wedding mandap, tent setup, lighting, floral arrangements, DJ & catering with Yash Tent's interactive price calculator." />
+        <link rel="canonical" href="https://yash-tent-light-decoration.vercel.app/calculator" />
       </Helmet>
 
       <section className="pt-32 pb-20 bg-[#FAFAFA] dark:bg-gray-900 min-h-screen transition-colors">
