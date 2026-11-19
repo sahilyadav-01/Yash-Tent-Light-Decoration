@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import logoImg from '../assets/logo.png';
 
 const Footer = () => {
   return (
@@ -8,8 +9,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* About */}
           <div>
-            <h3 className="text-2xl font-serif text-white mb-4">Yash Tent & Light Decoration</h3>
-            <p className="mb-6 text-sm leading-relaxed">
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={logoImg} 
+                alt="Yash Tent & Decoration Logo" 
+                className="h-12 w-auto object-contain bg-white/10 p-1 rounded-lg" 
+              />
+              <h3 className="text-xl font-serif text-white font-bold leading-tight">
+                Yash Tent &amp; Light Decoration
+              </h3>
+            </div>
+            <p className="mb-6 text-sm leading-relaxed text-gray-400">
               Making Every Celebration Grand. We provide premium tent, light, and wedding decoration services with a touch of elegance and tradition.
             </p>
             <div className="flex gap-4">

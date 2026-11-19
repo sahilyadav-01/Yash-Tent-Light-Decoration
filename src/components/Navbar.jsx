@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../store/useAuthStore';
 import { useThemeStore } from '../store/useThemeStore';
 import GlobalSearch from './common/GlobalSearch';
+import logoImg from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,13 +57,20 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex flex-col">
-            <span className={`text-2xl font-serif font-bold ${scrolled || !isHome ? 'text-[#C8102E]' : 'text-white'}`}>
-              Yash Tent
-            </span>
-            <span className={`text-xs tracking-wider ${scrolled || !isHome ? 'text-gray-600 dark:text-gray-400' : 'text-gray-200'}`}>
-              & Light Decoration
-            </span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img 
+              src={logoImg} 
+              alt="Yash Tent & Decoration Logo" 
+              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            />
+            <div className="flex flex-col">
+              <span className={`text-xl md:text-2xl font-serif font-bold leading-tight ${scrolled || !isHome ? 'text-[#C8102E]' : 'text-white'}`}>
+                Yash Tent
+              </span>
+              <span className={`text-xs tracking-wider ${scrolled || !isHome ? 'text-gray-600 dark:text-gray-400' : 'text-gray-200'}`}>
+                & Light Decoration
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
