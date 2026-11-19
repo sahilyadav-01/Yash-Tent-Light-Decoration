@@ -37,6 +37,8 @@ const Footer = () => {
               <li><Link to="/packages" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Packages</Link></li>
               <li><Link to="/faq" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> FAQs</Link></li>
               <li><Link to="/contact" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Contact Us</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Terms of Service</Link></li>
             </ul>
           </div>
 
@@ -82,8 +84,16 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p>&copy; {new Date().getFullYear()} Yash Tent & Light Decoration. All Rights Reserved.</p>
-          <p>Designed for Elegance</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 text-center md:text-left text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Yash Tent & Light Decoration. All Rights Reserved.</p>
+            <span className="hidden sm:inline text-gray-600">|</span>
+            <p className="text-gray-300 font-medium">Copyright &copy; {new Date().getFullYear()} Sahil Yadav</p>
+          </div>
+          <div className="flex items-center gap-4 text-sm text-gray-400">
+            <Link to="/privacy-policy" className="hover:text-[#D4AF37] transition-colors">Privacy Policy</Link>
+            <span className="text-gray-600">•</span>
+            <Link to="/terms-of-service" className="hover:text-[#D4AF37] transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>

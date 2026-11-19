@@ -22,6 +22,8 @@ import AdminDashboard from './pages/admin/Dashboard';
 
 import Portfolio from './pages/portfolio/Portfolio';
 import ServiceDetails from './pages/services/ServiceDetails';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "booking", element: <Booking /> },
       { path: "calculator", element: <Calculator /> },
+      { path: "privacy-policy", element: <PrivacyPolicy /> },
+      { path: "privacy", element: <PrivacyPolicy /> },
+      { path: "terms-of-service", element: <TermsOfService /> },
+      { path: "terms", element: <TermsOfService /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       { path: "forgot-password", element: <ForgotPassword /> },

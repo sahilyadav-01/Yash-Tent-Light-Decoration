@@ -35,6 +35,7 @@ A **modern, responsive, production-ready** React website for a premium event dec
 | 🧮 **Calculator** | Event cost estimator with real-time breakdown + PDF export (jsPDF) |
 | 📊 **Admin Panel** | Analytics charts (Recharts) · Manage bookings · Role-based access |
 | 👤 **Customer Dashboard** | Personal bookings, profile overview, protected route |
+| 📜 **Legal Pages** | Privacy Policy & Terms of Service with full legal compliance |
 | 🌍 **i18n** | English ↔ Hindi toggle — powered by react-i18next |
 
 ---
@@ -244,9 +245,18 @@ The app supports **English** and **Hindi** via `react-i18next`.
 
 ---
 
-## 📝 License
+## 📝 License & Copyright
 
 This project is licensed under the terms of the [LICENSE](./LICENSE) file.
+
+**Copyright &copy; Sahil Yadav. All Rights Reserved.**
+
+---
+
+## ⚖️ Privacy Policy & Terms of Service
+
+- [Privacy Policy](./src/pages/PrivacyPolicy.jsx) — Customer data protection, inquiry handling, and booking privacy guidelines.
+- [Terms of Service](./src/pages/TermsOfService.jsx) — Event reservations, cancellation conditions, on-site safety, and service agreements.
 
 ---
 
@@ -254,6 +264,7 @@ This project is licensed under the terms of the [LICENSE](./LICENSE) file.
 
 <div align="center">
 
-**Author:** Sahil Yadav
+**Author:** Sahil Yadav  
+**Copyright:** Sahil Yadav
 
 </div>
