@@ -12,10 +12,10 @@ const About = () => {
   ];
 
   const timeline = [
-    { year: "2008", title: "The Beginning", desc: "Yash Tent & Light Decoration was founded with a small inventory but big dreams." },
-    { year: "2012", title: "Expanding Horizons", desc: "Introduced premium wedding decoration and complete event management services." },
-    { year: "2016", title: "Award Winning", desc: "Recognized as the best local event decorator by the City Business Association." },
-    { year: "2023", title: "Modernization", desc: "Upgraded our entire inventory with the latest luxury tents and LED lighting systems." },
+    { year: "2025", title: "The Beginning", desc: "Yash Tent & Light Decoration was founded in Palawa, Rajasthan with premium equipment, dedication, and big dreams." },
+    { year: "2025", title: "Expanding Horizons", desc: "Introduced complete royal wedding setups, designer mandaps, and professional sound & lighting." },
+    { year: "2026", title: "Modern Inventory", desc: "Upgraded our inventory with luxury waterproof tents, ambient LED decor, and exotic floral styling." },
+    { year: "2026", title: "Digital Platform & Growth", desc: "Launched online booking and digital quotation, becoming a preferred event partner in the region." },
   ];
 
   return (
@@ -48,7 +48,7 @@ const About = () => {
             transition={{ delay: 0.2 }}
             className="text-xl text-gray-300 max-w-2xl mx-auto"
           >
-            Your Trusted Event Partner for over a decade
+            Your Trusted Event Partner for Grand Celebrations
           </motion.p>
         </div>
       </section>

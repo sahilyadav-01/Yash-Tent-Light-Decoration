@@ -124,8 +124,8 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div className="p-4">
-              <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#D4AF37] mb-2">15+</h3>
-              <p className="text-gray-300 text-sm md:text-base font-medium">Years of Excellence</p>
+              <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#D4AF37] mb-2">500+</h3>
+              <p className="text-gray-300 text-sm md:text-base font-medium">Events Decorated</p>
             </div>
             <div className="p-4">
               <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#D4AF37] mb-2">1,200+</h3>
