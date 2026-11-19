@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
@@ -47,7 +48,7 @@ const Testimonials = () => {
         <meta name="description" content="Read what our happy clients have to say about our decoration and event services." />
       </Helmet>
 
-      <section className="pt-32 pb-20 bg-white">
+      <section className="pt-32 pb-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="Client Success Stories" 
@@ -68,8 +69,8 @@ const Testimonials = () => {
             >
               {testimonials.map((testi, idx) => (
                 <SwiperSlide key={idx}>
-                  <div className="bg-[#FAFAFA] p-8 rounded-2xl shadow-sm border border-gray-100 h-full relative">
-                    <FaQuoteLeft className="absolute top-6 right-8 text-gray-200 text-6xl opacity-50" />
+                  <div className="bg-[#FAFAFA] dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 h-full relative transition-colors">
+                    <FaQuoteLeft className="absolute top-6 right-8 text-gray-200 dark:text-gray-700 text-6xl opacity-50" />
                     
                     <div className="flex text-[#D4AF37] mb-6">
                       {[...Array(testi.rating)].map((_, i) => (
@@ -77,19 +78,19 @@ const Testimonials = () => {
                       ))}
                     </div>
                     
-                    <p className="text-gray-600 text-lg mb-8 italic relative z-10">
+                    <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 italic relative z-10">
                       "{testi.text}"
                     </p>
                     
-                    <div className="flex items-center gap-4 border-t border-gray-200 pt-6 mt-auto">
+                    <div className="flex items-center gap-4 border-t border-gray-200 dark:border-gray-700 pt-6 mt-auto">
                       <img 
                         src={testi.image} 
                         alt={testi.name} 
                         className="w-14 h-14 rounded-full object-cover border-2 border-[#C8102E]"
                       />
                       <div>
-                        <h4 className="font-bold text-[#1F2937]">{testi.name}</h4>
-                        <p className="text-sm text-gray-500">{testi.location}</p>
+                        <h4 className="font-bold text-[#1F2937] dark:text-white">{testi.name}</h4>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{testi.location}</p>
                       </div>
                     </div>
                   </div>
@@ -111,9 +112,9 @@ const Testimonials = () => {
           >
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Ready to Create Your Own Success Story?</h2>
             <p className="text-lg text-red-100 mb-10">Contact us today to start planning the decoration for your upcoming special event.</p>
-            <a href="/booking" className="inline-block bg-white text-[#C8102E] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
+            <Link to="/booking" className="inline-block bg-white text-[#C8102E] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg">
               Book Our Services
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

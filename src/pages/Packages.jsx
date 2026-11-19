@@ -93,7 +93,7 @@ const Packages = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-[#FAFAFA]">
+      <section className="py-20 bg-[#FAFAFA] dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="Choose Your Plan" 
@@ -108,7 +108,7 @@ const Packages = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
-                className={`relative rounded-2xl shadow-xl overflow-hidden border-2 ${pkg.color} ${pkg.bg} ${pkg.recommended ? 'md:-translate-y-4 md:scale-105 z-10' : 'z-0'}`}
+                className={`relative rounded-2xl shadow-xl overflow-hidden border-2 ${pkg.color} ${pkg.bg} dark:bg-gray-800 ${pkg.recommended ? 'md:-translate-y-4 md:scale-105 z-10' : 'z-0'}`}
               >
                 {pkg.recommended && (
                   <div className="absolute top-0 left-0 w-full bg-[#D4AF37] text-white text-center py-1 text-sm font-bold tracking-wider">
@@ -116,12 +116,12 @@ const Packages = () => {
                   </div>
                 )}
                 
-                <div className={`p-8 ${pkg.recommended ? 'pt-12' : ''} text-center border-b border-gray-200 bg-white`}>
-                  <h3 className="text-2xl font-serif font-bold text-[#1F2937] mb-2">{pkg.name}</h3>
-                  <p className="text-gray-500 mb-6 h-10">{pkg.description}</p>
-                  <div className="text-4xl font-bold text-[#1F2937]">
+                <div className={`p-8 ${pkg.recommended ? 'pt-12' : ''} text-center border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800`}>
+                  <h3 className="text-2xl font-serif font-bold text-[#1F2937] dark:text-white mb-2">{pkg.name}</h3>
+                  <p className="text-gray-500 dark:text-gray-400 mb-6 h-10">{pkg.description}</p>
+                  <div className="text-4xl font-bold text-[#1F2937] dark:text-white">
                     {pkg.price}
-                    {pkg.price !== 'Custom' && <span className="text-lg text-gray-500 font-normal"> /start</span>}
+                    {pkg.price !== 'Custom' && <span className="text-lg text-gray-500 dark:text-gray-400 font-normal"> /start</span>}
                   </div>
                 </div>
                 
@@ -130,7 +130,7 @@ const Packages = () => {
                     {pkg.features.map((feature, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-3">
                         <FaCheckCircle className={`mt-1 shrink-0 ${pkg.recommended ? 'text-[#D4AF37]' : 'text-gray-400'}`} />
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -147,8 +147,8 @@ const Packages = () => {
           </div>
           
           <div className="mt-16 text-center max-w-2xl mx-auto">
-            <h4 className="text-2xl font-serif font-bold text-[#1F2937] mb-4">Need Something Else?</h4>
-            <p className="text-gray-600 mb-6">Contact us to create a fully customized package tailored specifically to your event's unique requirements.</p>
+            <h4 className="text-2xl font-serif font-bold text-[#1F2937] dark:text-white mb-4">Need Something Else?</h4>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">Contact us to create a fully customized package tailored specifically to your event's unique requirements.</p>
             <Link to="/contact" className="text-[#C8102E] font-medium hover:underline inline-flex items-center gap-2">
               Contact Us for Custom Quote &rarr;
             </Link>

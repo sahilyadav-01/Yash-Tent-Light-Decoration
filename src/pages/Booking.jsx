@@ -81,7 +81,7 @@ const Booking = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-[#FAFAFA] relative -mt-20 z-20">
+      <section className="py-20 bg-[#FAFAFA] dark:bg-gray-900 relative -mt-20 z-20 transition-colors">
         <div className="container mx-auto px-4 max-w-4xl">
           
           <AnimatePresence mode="wait">
@@ -91,40 +91,40 @@ const Booking = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-white p-8 md:p-12 rounded-2xl shadow-2xl border-t-8 border-[#C8102E]"
+                className="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl border-t-8 border-[#C8102E] border-x border-b border-gray-100 dark:border-gray-700 transition-colors"
               >
                 <div className="text-center mb-10">
-                  <h2 className="text-3xl font-serif font-bold text-[#1F2937] mb-2">Event Booking Form</h2>
-                  <p className="text-gray-500">Please provide details about your event, and our team will get back to you with a customized quote.</p>
+                  <h2 className="text-3xl font-serif font-bold text-[#1F2937] dark:text-white mb-2">Event Booking Form</h2>
+                  <p className="text-gray-500 dark:text-gray-400">Please provide details about your event, and our team will get back to you with a customized quote.</p>
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                   {/* Personal Details */}
                   <div>
-                    <h3 className="text-xl font-bold text-[#1F2937] border-b border-gray-200 pb-2 mb-4">Personal Details</h3>
+                    <h3 className="text-xl font-bold text-[#1F2937] dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">Personal Details</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
                         <input 
                           {...register("name", { required: "Name is required" })}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:bg-white dark:focus:bg-gray-700 transition-colors"
                         />
                         {errors.name && <span className="text-red-500 text-xs mt-1">{errors.name.message}</span>}
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone Number *</label>
                         <input 
                           {...register("phone", { required: "Phone number is required" })}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:bg-white dark:focus:bg-gray-700 transition-colors"
                         />
                         {errors.phone && <span className="text-red-500 text-xs mt-1">{errors.phone.message}</span>}
                       </div>
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email Address *</label>
                         <input 
                           type="email"
                           {...register("email", { required: "Email is required" })}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:bg-white dark:focus:bg-gray-700 transition-colors"
                         />
                       </div>
                     </div>
@@ -132,13 +132,13 @@ const Booking = () => {
 
                   {/* Event Details */}
                   <div>
-                    <h3 className="text-xl font-bold text-[#1F2937] border-b border-gray-200 pb-2 mb-4">Event Details</h3>
+                    <h3 className="text-xl font-bold text-[#1F2937] dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">Event Details</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Event Type *</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Event Type *</label>
                         <select 
                           {...register("eventType")}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:bg-white dark:focus:bg-gray-700 transition-colors"
                         >
                           <option value="Wedding">Wedding</option>
                           <option value="Reception">Reception</option>
@@ -148,10 +148,10 @@ const Booking = () => {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Decoration Package</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Decoration Package</label>
                         <select 
                           {...register("package")}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none bg-gray-50 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:bg-white dark:focus:bg-gray-700 transition-colors"
                         >
                           <option value="Silver">Silver Package</option>
                           <option value="Gold">Gold Package</option>
@@ -160,18 +160,18 @@ const Booking = () => {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Event Date *</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Event Date *</label>
                         <input 
                           type="date"
                           {...register("eventDate", { required: "Date is required" })}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:bg-white dark:focus:bg-gray-700 transition-colors"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Estimated Guests</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Estimated Guests</label>
                         <select 
                           {...register("guests")}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:bg-white dark:focus:bg-gray-700 transition-colors"
                         >
                           <option value="1-100">1 - 100 Guests</option>
                           <option value="101-300">101 - 300 Guests</option>
@@ -180,10 +180,10 @@ const Booking = () => {
                         </select>
                       </div>
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Event Address/Venue</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Event Address/Venue</label>
                         <input 
                           {...register("address")}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 focus:bg-white transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:bg-white dark:focus:bg-gray-700 transition-colors"
                           placeholder="Venue name or full address"
                         />
                       </div>
@@ -192,13 +192,13 @@ const Booking = () => {
 
                   {/* Extra Requirements */}
                   <div>
-                    <h3 className="text-xl font-bold text-[#1F2937] border-b border-gray-200 pb-2 mb-4">Additional Information</h3>
+                    <h3 className="text-xl font-bold text-[#1F2937] dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-4">Additional Information</h3>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Special Requirements or Vision</label>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Special Requirements or Vision</label>
                       <textarea 
                         {...register("requirements")}
                         rows="4"
-                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 focus:bg-white transition-colors resize-none"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-[#C8102E] focus:border-transparent outline-none bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white focus:bg-white dark:focus:bg-gray-700 transition-colors resize-none"
                         placeholder="Tell us about specific themes, color preferences, or any other services like catering/DJ you might need..."
                       ></textarea>
                     </div>
@@ -226,18 +226,18 @@ const Booking = () => {
                 key="success"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-white p-12 rounded-2xl shadow-2xl text-center border-t-8 border-[#25D366]"
+                className="bg-white dark:bg-gray-800 p-12 rounded-2xl shadow-2xl text-center border-t-8 border-[#25D366] border-x border-b border-gray-100 dark:border-gray-700 transition-colors"
               >
-                <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-24 h-24 bg-green-50 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
                   <FaCheckCircle className="text-[#25D366] text-6xl" />
                 </div>
-                <h2 className="text-4xl font-serif font-bold text-[#1F2937] mb-4">Booking Request Sent!</h2>
-                <p className="text-xl text-gray-600 mb-8 max-w-lg mx-auto">
+                <h2 className="text-4xl font-serif font-bold text-[#1F2937] dark:text-white mb-4">Booking Request Sent!</h2>
+                <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto">
                   Thank you for choosing Yash Tent & Light Decoration. Our event manager will contact you within 24 hours with a customized proposal.
                 </p>
                 <button 
                   onClick={() => setIsSuccess(false)}
-                  className="bg-[#1F2937] hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition-colors"
+                  className="bg-[#1F2937] dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white px-8 py-3 rounded-full font-medium transition-colors"
                 >
                   Make Another Booking
                 </button>

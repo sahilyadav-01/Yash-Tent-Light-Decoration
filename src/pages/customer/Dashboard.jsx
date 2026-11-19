@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { useAuthStore } from '../../store/useAuthStore';
 import { useBookingStore } from '../../store/useBookingStore';
 import { generateQuotationPDF } from '../../utils/generatePDF';
@@ -53,9 +54,9 @@ const CustomerDashboard = () => {
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">No bookings yet</h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-6">You haven't made any event bookings.</p>
-                  <a href="/booking" className="bg-[#C8102E] text-white px-6 py-3 rounded-full font-medium inline-block hover:bg-red-800 transition-colors">
+                  <Link to="/booking" className="bg-[#C8102E] text-white px-6 py-3 rounded-full font-medium inline-block hover:bg-red-800 transition-colors">
                     Book an Event Now
-                  </a>
+                  </Link>
                 </div>
               ) : (
                 userBookings.map((booking) => (

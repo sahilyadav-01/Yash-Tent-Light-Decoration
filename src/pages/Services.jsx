@@ -92,7 +92,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-[#FAFAFA]">
+      <section className="py-20 bg-[#FAFAFA] dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="What We Offer" 

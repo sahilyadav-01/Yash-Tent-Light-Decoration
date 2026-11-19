@@ -43,7 +43,7 @@ const WhyChooseUs = () => {
       </section>
 
       {/* Reasons Grid */}
-      <section className="py-20 bg-[#FAFAFA]">
+      <section className="py-20 bg-[#FAFAFA] dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="Our Commitment to Excellence" 
@@ -59,13 +59,13 @@ const WhyChooseUs = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center group"
+                className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 text-center group transition-colors"
               >
-                <div className="w-20 h-20 mx-auto bg-gray-50 rounded-full flex items-center justify-center text-[#C8102E] mb-6 group-hover:bg-[#C8102E] group-hover:text-white transition-colors duration-300 shadow-inner">
+                <div className="w-20 h-20 mx-auto bg-gray-50 dark:bg-gray-700 rounded-full flex items-center justify-center text-[#C8102E] mb-6 group-hover:bg-[#C8102E] group-hover:text-white transition-colors duration-300 shadow-inner">
                   {reason.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-[#1F2937] mb-4">{reason.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-[#1F2937] dark:text-white mb-4">{reason.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                   {reason.desc}
                 </p>
               </motion.div>

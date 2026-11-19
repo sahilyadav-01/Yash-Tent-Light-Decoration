@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronDown } from 'react-icons/fa';
 import SectionHeading from '../components/SectionHeading';
@@ -45,7 +46,7 @@ const FAQ = () => {
         <meta name="description" content="Frequently asked questions about our tent, lighting, and decoration booking process." />
       </Helmet>
 
-      <section className="pt-32 pb-20 bg-[#FAFAFA] min-h-screen">
+      <section className="pt-32 pb-20 bg-[#FAFAFA] dark:bg-gray-900 transition-colors min-h-screen">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="Frequently Asked Questions" 
@@ -60,13 +61,13 @@ const FAQ = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="mb-4 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+                className="mb-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden"
               >
                 <button
                   className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
                   onClick={() => toggleAccordion(index)}
                 >
-                  <span className="font-semibold text-lg text-[#1F2937]">{faq.question}</span>
+                  <span className="font-semibold text-lg text-[#1F2937] dark:text-white">{faq.question}</span>
                   <motion.div
                     animate={{ rotate: activeIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -83,7 +84,7 @@ const FAQ = () => {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 pb-5 text-gray-600 border-t border-gray-100 pt-4">
+                      <div className="px-6 pb-5 text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -93,12 +94,12 @@ const FAQ = () => {
             ))}
           </div>
           
-          <div className="text-center mt-12 bg-white p-8 rounded-2xl shadow-lg max-w-3xl mx-auto border-t-4 border-[#D4AF37]">
-            <h3 className="text-xl font-bold text-[#1F2937] mb-2">Still have questions?</h3>
-            <p className="text-gray-600 mb-6">We're here to help! Contact our support team for more information.</p>
-            <a href="/contact" className="inline-block bg-[#1F2937] text-white px-8 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
+          <div className="text-center mt-12 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg max-w-3xl mx-auto border-t-4 border-[#D4AF37]">
+            <h3 className="text-xl font-bold text-[#1F2937] dark:text-white mb-2">Still have questions?</h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">We're here to help! Contact our support team for more information.</p>
+            <Link to="/contact" className="inline-block bg-[#C8102E] text-white px-8 py-3 rounded-full font-bold hover:bg-red-800 transition-colors shadow-md">
               Contact Support
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -54,7 +54,7 @@ const About = () => {
       </section>
 
       {/* Company Intro */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-800 transition-colors">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <motion.div 
@@ -75,22 +75,22 @@ const About = () => {
               viewport={{ once: true }}
               className="lg:w-1/2"
             >
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1F2937] mb-6">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1F2937] dark:text-white mb-6">
                 Making Every Celebration <span className="text-[#C8102E]">Grand</span>
               </h2>
-              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed">
                 Welcome to Yash Tent & Light Decoration. We specialize in transforming ordinary spaces into magical settings. With our rich Indian traditional touch blended with modern luxury, we ensure your special moments are nothing short of spectacular.
               </p>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">
                 From grand weddings to intimate gatherings, our dedicated team works tirelessly to bring your vision to life with premium tents, exquisite floral arrangements, and mesmerizing lighting.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 {features.map((feature, idx) => (
                   <div key={idx} className="flex gap-4">
-                    <div className="text-[#D4AF37] mt-1">{feature.icon}</div>
+                    <div className="text-[#D4AF37] mt-1 shrink-0">{feature.icon}</div>
                     <div>
-                      <h4 className="font-bold text-[#1F2937] mb-1">{feature.title}</h4>
-                      <p className="text-sm text-gray-500">{feature.desc}</p>
+                      <h4 className="font-bold text-[#1F2937] dark:text-white mb-1">{feature.title}</h4>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{feature.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -101,13 +101,13 @@ const About = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 bg-[#FAFAFA]">
+      <section className="py-20 bg-[#FAFAFA] dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4">
           <SectionHeading title="Our Journey" subtitle="The story of how we became the city's leading event decorators." />
           
           <div className="max-w-4xl mx-auto relative">
             {/* Vertical Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200 dark:bg-gray-700"></div>
             
             {timeline.map((item, idx) => (
               <motion.div 
@@ -119,12 +119,12 @@ const About = () => {
                 className={`relative flex items-center justify-between mb-12 ${idx % 2 === 0 ? 'flex-row-reverse' : ''}`}
               >
                 <div className="w-5/12"></div>
-                <div className="z-10 bg-[#C8102E] w-12 h-12 rounded-full border-4 border-white shadow flex items-center justify-center text-white font-bold">
+                <div className="z-10 bg-[#C8102E] w-12 h-12 rounded-full border-4 border-white dark:border-gray-800 shadow flex items-center justify-center text-white font-bold">
                   {idx + 1}
                 </div>
-                <div className={`w-5/12 bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#D4AF37] ${idx % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                  <h3 className="text-2xl font-bold text-[#1F2937] mb-2">{item.year} - {item.title}</h3>
-                  <p className="text-gray-600">{item.desc}</p>
+                <div className={`w-5/12 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-t-4 border-[#D4AF37] ${idx % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                  <h3 className="text-2xl font-bold text-[#1F2937] dark:text-white mb-2">{item.year} - {item.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{item.desc}</p>
                 </div>
               </motion.div>
             ))}

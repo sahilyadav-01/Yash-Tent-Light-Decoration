@@ -88,7 +88,7 @@ const Home = () => {
       </section>
 
       {/* Services Highlight */}
-      <section className="py-24 bg-[#FAFAFA]">
+      <section className="py-24 bg-[#FAFAFA] dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4">
           <SectionHeading 
             title="Our Premium Services" 
@@ -111,10 +111,62 @@ const Home = () => {
           <div className="text-center mt-12">
             <Link 
               to="/services" 
-              className="inline-block border-2 border-[#C8102E] text-[#C8102E] hover:bg-[#C8102E] hover:text-white px-8 py-3 rounded-full font-medium transition-colors"
+              className="inline-block border-2 border-[#C8102E] text-[#C8102E] hover:bg-[#C8102E] hover:text-white px-8 py-3 rounded-full font-bold transition-all shadow-sm hover:shadow-lg"
             >
               View All Services
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Counter Section */}
+      <section className="py-16 bg-gradient-to-r from-gray-900 via-[#1a0a0d] to-gray-900 text-white border-y border-red-900/30">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <div className="p-4">
+              <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#D4AF37] mb-2">15+</h3>
+              <p className="text-gray-300 text-sm md:text-base font-medium">Years of Excellence</p>
+            </div>
+            <div className="p-4">
+              <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#D4AF37] mb-2">1,200+</h3>
+              <p className="text-gray-300 text-sm md:text-base font-medium">Grand Celebrations</p>
+            </div>
+            <div className="p-4">
+              <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#D4AF37] mb-2">100%</h3>
+              <p className="text-gray-300 text-sm md:text-base font-medium">Customer Happiness</p>
+            </div>
+            <div className="p-4">
+              <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#D4AF37] mb-2">50+</h3>
+              <p className="text-gray-300 text-sm md:text-base font-medium">Skilled Craft Crew</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Instant Action Banner */}
+      <section className="py-20 bg-white dark:bg-gray-800 transition-colors">
+        <div className="container mx-auto px-4 text-center max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">
+            Planning a Wedding or Special Celebration?
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            From regal royal tents to mesmerizing LED light tunnels and bespoke stage setups, we make every moment unforgettable.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              to="/booking"
+              className="bg-[#C8102E] hover:bg-red-800 text-white px-8 py-3.5 rounded-full font-bold shadow-lg transition-transform hover:-translate-y-0.5"
+            >
+              Book Event Online
+            </Link>
+            <a
+              href="https://wa.me/919680709044"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-emerald-600 text-white px-8 py-3.5 rounded-full font-bold shadow-lg transition-transform hover:-translate-y-0.5 flex items-center gap-2"
+            >
+              Chat on WhatsApp
+            </a>
           </div>
         </div>
       </section>
