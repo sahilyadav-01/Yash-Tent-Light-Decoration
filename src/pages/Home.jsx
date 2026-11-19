@@ -32,8 +32,12 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Yash Tent & Light Decoration | Home</title>
-        <meta name="description" content="Premium Tent, Light & Wedding Decoration Services" />
+        <title>Yash Tent & Light Decoration | Best Wedding Tent House in Palawa, Rajasthan</title>
+        <meta name="description" content="Discover premium wedding decoration, luxury waterproof tents, ambient LED lighting, floral mandap & catering in Palawa, Rajasthan 301706. Call +91 9680709044." />
+        <link rel="canonical" href="https://yash-tent-light-decoration.vercel.app/" />
+        <meta property="og:title" content="Yash Tent & Light Decoration | Grand Celebrations" />
+        <meta property="og:description" content="Premier wedding tent house and decoration services in Palawa, Behror, Rajasthan." />
+        <meta property="og:url" content="https://yash-tent-light-decoration.vercel.app/" />
       </Helmet>
 
       {/* Hero Section */}

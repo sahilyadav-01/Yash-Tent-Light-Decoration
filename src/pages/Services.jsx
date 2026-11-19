@@ -59,8 +59,9 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Our Services | Yash Tent & Light Decoration</title>
-        <meta name="description" content="Explore our wide range of event decoration and management services." />
+        <title>Our Services | Wedding Decoration, Tent House, Lighting & DJ Setup</title>
+        <meta name="description" content="Explore complete wedding decor, waterproof tents, ambient LED lights, stage backgrounds, flower decoration & DJ sound systems by Yash Tent in Palawa, Rajasthan." />
+        <link rel="canonical" href="https://yash-tent-light-decoration.vercel.app/services" />
       </Helmet>
 
       {/* Page Header */}
