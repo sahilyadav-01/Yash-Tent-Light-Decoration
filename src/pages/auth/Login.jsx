@@ -68,7 +68,7 @@ const Login = () => {
                     type="email"
                     {...register("email", { required: "Email is required" })}
                     className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md leading-5 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-[#C8102E] focus:border-[#C8102E] sm:text-sm transition-colors"
-                    placeholder="raosumityadav420@gmail.com / customer@example.com"
+                    placeholder="Enter your email"
                   />
                 </div>
                 {errors.email && <span className="text-red-500 text-xs mt-1">{errors.email.message}</span>}
@@ -113,20 +113,6 @@ const Login = () => {
             <Link to="/register" className="font-medium text-[#D4AF37] hover:text-yellow-600">
               Register here
             </Link>
-          </div>
-          
-          <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
-            <p className="text-xs text-center text-gray-500 dark:text-gray-400 mb-2">Demo Credentials:</p>
-            <div className="grid grid-cols-2 gap-2 text-xs text-gray-600 dark:text-gray-300">
-              <div className="bg-gray-100 dark:bg-gray-900 p-2 rounded">
-                <strong>Admin:</strong> raosumityadav420@gmail.com<br/>
-                <strong>Pass:</strong> admin123
-              </div>
-              <div className="bg-gray-100 dark:bg-gray-900 p-2 rounded">
-                <strong>Customer:</strong> customer@example.com<br/>
-                <strong>Pass:</strong> password123
-              </div>
-            </div>
           </div>
         </div>
       </div>
