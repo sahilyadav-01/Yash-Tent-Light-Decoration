@@ -4,3 +4,4 @@ Disallow: /admin
 Disallow: /dashboard
 
 Sitemap: https://yash-tent-light-decoration.vercel.app/sitemap.xml
+Sitemap: https://yash-tent-light-decoration.vercel.app/sitemap_index.xml
