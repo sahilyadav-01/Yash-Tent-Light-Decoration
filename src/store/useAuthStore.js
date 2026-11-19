@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 // Mock User Data
-const MOCK_ADMIN = { id: 1, name: 'Admin', email: 'admin@yashtent.com', role: 'admin' };
+const MOCK_ADMIN = { id: 1, name: 'Admin (Sumit Yadav)', email: 'raosumityadav420@gmail.com', role: 'admin' };
 const MOCK_CUSTOMER = { id: 2, name: 'Test Customer', email: 'customer@example.com', role: 'customer' };
 
 export const useAuthStore = create((set) => ({
@@ -12,7 +12,8 @@ export const useAuthStore = create((set) => ({
     // Mock API Call
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (email === 'admin@yashtent.com' && password === 'admin123') {
+        const normalizedEmail = (email || '').trim().toLowerCase();
+        if ((normalizedEmail === 'raosumityadav420@gmail.com' || normalizedEmail === 'admin@yashtent.com') && password === 'admin123') {
           localStorage.setItem('yash_user', JSON.stringify(MOCK_ADMIN));
           set({ user: MOCK_ADMIN, isAuthenticated: true });
           resolve(MOCK_ADMIN);

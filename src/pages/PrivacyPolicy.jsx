@@ -110,7 +110,7 @@ const PrivacyPolicy = () => {
                 <p>
                   WhatsApp / Phone: <a href="https://wa.me/919680709044" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-medium">+91 9680709044</a> (Sumit Yadav) | <a href="tel:+919818222764" className="hover:underline">+91 9818222764</a> (Surendar Kumar)
                 </p>
-                <p>Email: <a href="mailto:info@yashtent.com" className="text-[#C8102E] hover:underline">info@yashtent.com</a></p>
+                <p>Email: <a href="mailto:raosumityadav420@gmail.com" className="text-[#C8102E] hover:underline">raosumityadav420@gmail.com</a></p>
                 <p className="pt-2 text-xs text-gray-500">Copyright &copy; {new Date().getFullYear()} Sahil Yadav. All Rights Reserved.</p>
               </div>
             </div>

@@ -266,7 +266,7 @@ This project is licensed under the terms of the [LICENSE](./LICENSE) file.
 
 - **WhatsApp:** [+91 9680709044](https://wa.me/919680709044) (Sumit / Kuku Yadav)
 - **Phone:** [+91 9818222764](tel:+919818222764) (Surendar Kumar)
-- **Email:** info@yashtent.com
+- **Email:** [raosumityadav420@gmail.com](mailto:raosumityadav420@gmail.com)
 - **Address:** Near S'K One Tech Support, Palawa, Rajasthan 301706
 
 ---

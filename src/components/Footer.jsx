@@ -105,7 +105,12 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-[#C8102E] shrink-0" />
-                <span className="text-sm">info@yashtent.com</span>
+                <a 
+                  href="mailto:raosumityadav420@gmail.com" 
+                  className="text-sm hover:text-white transition-colors break-all"
+                >
+                  raosumityadav420@gmail.com
+                </a>
               </li>
             </ul>
           </div>

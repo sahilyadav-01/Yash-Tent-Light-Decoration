@@ -103,8 +103,14 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-[#1F2937]">Email Address</h4>
-                      <p className="text-gray-600">info@yashtent.com</p>
-                      <p className="text-gray-600">bookings@yashtent.com</p>
+                      <p className="text-gray-600">
+                        <a 
+                          href="mailto:raosumityadav420@gmail.com" 
+                          className="hover:text-[#C8102E] transition-colors break-all"
+                        >
+                          raosumityadav420@gmail.com
+                        </a>
+                      </p>
                     </div>
                   </li>
                   
