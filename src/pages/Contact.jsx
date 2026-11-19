@@ -68,7 +68,7 @@ const Contact = () => {
                       <h4 className="font-bold text-[#1F2937]">Office Address</h4>
                       <p className="text-gray-600">
                         <a 
-                          href="https://maps.google.com/?q=XGP2%2BQMJ,+Palawa,+Rajasthan+301706,+India" 
+                          href="https://maps.app.goo.gl/T9Ys8mDRsYHeX9MC7" 
                           target="_blank" 
                           rel="noopener noreferrer" 
                           className="hover:text-[#C8102E] transition-colors"
