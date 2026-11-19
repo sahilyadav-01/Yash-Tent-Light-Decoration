@@ -24,6 +24,7 @@ import Portfolio from './pages/portfolio/Portfolio';
 import ServiceDetails from './pages/services/ServiceDetails';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       { 
         path: "admin", 
         element: <AdminRoute><AdminDashboard /></AdminRoute> 
+      },
+      {
+        path: "*",
+        element: <NotFound />
       },
     ],
   },
