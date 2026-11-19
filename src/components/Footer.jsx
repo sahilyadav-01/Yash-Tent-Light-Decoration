@@ -48,10 +48,9 @@ const Footer = () => {
               <li><Link to="/about" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> About Us</Link></li>
               <li><Link to="/gallery" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Gallery</Link></li>
               <li><Link to="/packages" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Packages</Link></li>
+              <li><Link to="/calculator" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Cost Calculator</Link></li>
               <li><Link to="/faq" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> FAQs</Link></li>
               <li><Link to="/contact" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Contact Us</Link></li>
-              <li><Link to="/privacy-policy" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="hover:text-[#D4AF37] transition-colors flex items-center gap-2"><span className="text-xs">▸</span> Terms of Service</Link></li>
             </ul>
           </div>
 
