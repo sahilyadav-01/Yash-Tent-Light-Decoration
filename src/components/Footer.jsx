@@ -10,10 +10,10 @@ const Footer = () => {
           {/* About */}
           <div>
             <Link to="/" className="inline-block mb-4 group">
-              <img 
-                src={logoImg} 
-                alt="Yash Tent & Decoration" 
-                className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow" 
+              <img
+                src={logoImg}
+                alt="Yash Tent & Decoration"
+                className="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow"
               />
             </Link>
             <p className="mb-6 text-sm leading-relaxed text-gray-400">
@@ -26,10 +26,10 @@ const Footer = () => {
               <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#C8102E] hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                 <FaInstagram size={18} />
               </a>
-              <a 
-                href="https://wa.me/919680709044" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://wa.me/919680709044"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Chat on WhatsApp"
                 className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
               >
@@ -90,16 +90,16 @@ const Footer = () => {
               <li className="flex items-start gap-3 text-gray-400">
                 <FaPhoneAlt className="text-[#D4AF37] mt-1 shrink-0" />
                 <div className="flex flex-col space-y-1">
-                  <a 
-                    href="https://wa.me/919680709044" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://wa.me/919680709044"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm hover:text-[#25D366] transition-colors"
                   >
                     Sumit (kuku) Yadav: +91 9680709044 (WhatsApp)
                   </a>
-                  <a 
-                    href="tel:+919818222764" 
+                  <a
+                    href="tel:+919818222764"
                     className="text-sm hover:text-white transition-colors"
                   >
                     Surendar kumar: +91 9818222764
@@ -108,8 +108,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-[#C8102E] shrink-0" />
-                <a 
-                  href="mailto:raosumityadav420@gmail.com" 
+                <a
+                  href="mailto:raosumityadav420@gmail.com"
                   className="text-sm hover:text-white transition-colors break-all"
                 >
                   raosumityadav420@gmail.com
