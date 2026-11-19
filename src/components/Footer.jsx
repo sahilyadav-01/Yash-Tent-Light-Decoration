@@ -120,15 +120,9 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-          <div className="text-center md:text-left">
-            <p className="text-gray-300">
-              &copy; {new Date().getFullYear()} Yash Tent & Light Decoration. All Rights Reserved.
-              <span className="hidden md:inline text-gray-600 mx-2">&bull;</span>
-              <span className="block md:inline text-xs md:text-sm text-gray-400 mt-1 md:mt-0 font-medium">
-                Copyright &copy; {new Date().getFullYear()} Sahil Yadav
-              </span>
-            </p>
-          </div>
+          <p className="text-center md:text-left text-gray-300">
+            Copyright &copy; {new Date().getFullYear()} <span className="text-white font-medium">Sahil Yadav</span>. All Rights Reserved.
+          </p>
           <div className="flex items-center gap-4 text-sm">
             <Link to="/privacy-policy" className="hover:text-[#D4AF37] transition-colors">Privacy Policy</Link>
             <span className="text-gray-600">&bull;</span>
