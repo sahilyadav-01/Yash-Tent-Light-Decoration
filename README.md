@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="./public/logo.png" alt="Yash Tent & Decoration Logo" width="180" />
+
 # 🎪 Yash Tent & Light Decoration
 
 ### *"Making Every Celebration Grand"*
