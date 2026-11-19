@@ -62,8 +62,9 @@ const Packages = () => {
   return (
     <>
       <Helmet>
-        <title>Packages | Yash Tent & Light Decoration</title>
-        <meta name="description" content="Choose from our Silver, Gold, and Platinum decoration packages." />
+        <title>Decoration Packages & Pricing | Silver, Gold & Platinum Wedding Packages</title>
+        <meta name="description" content="Transparent wedding and event decoration packages by Yash Tent & Light Decoration. Choose Silver, Gold, Platinum, or custom tailored setups to match your budget." />
+        <link rel="canonical" href="https://yash-tent-light-decoration.vercel.app/packages" />
       </Helmet>
 
       <section className="pt-32 pb-20 bg-gray-900 text-white relative">

@@ -37,8 +37,9 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us | Yash Tent & Light Decoration</title>
-        <meta name="description" content="Get in touch with us for premium event decoration and management services." />
+        <title>Contact Us | Yash Tent & Light Decoration Palawa, Rajasthan</title>
+        <meta name="description" content="Contact Yash Tent & Light Decoration at Palawa, Rajasthan 301706. Call or WhatsApp Sumit Yadav at +91 9680709044 or Surendar Kumar at +91 9818222764 for instant event quotes." />
+        <link rel="canonical" href="https://yash-tent-light-decoration.vercel.app/contact" />
       </Helmet>
 
       <section className="pt-32 pb-20 bg-[#FAFAFA]">

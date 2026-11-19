@@ -79,6 +79,8 @@ const ServiceDetails = () => {
     <>
       <Helmet>
         <title>{service.title} | Yash Tent & Light Decoration</title>
+        <meta name="description" content={service.description} />
+        <link rel="canonical" href={`https://yash-tent-light-decoration.vercel.app/services/${id}`} />
       </Helmet>
       
       <div className="pt-32 pb-20 bg-gray-50 dark:bg-gray-900 min-h-screen">

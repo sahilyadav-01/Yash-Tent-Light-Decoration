@@ -21,8 +21,9 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Us | Yash Tent & Light Decoration</title>
-        <meta name="description" content="Learn more about our journey and why we are the most trusted event partner." />
+        <title>About Us | Yash Tent & Light Decoration Palawa, Rajasthan</title>
+        <meta name="description" content="Learn about Yash Tent & Light Decoration founded in 2025 in Palawa, Rajasthan. Discover our team, royal wedding setups, and passion for making celebrations grand." />
+        <link rel="canonical" href="https://yash-tent-light-decoration.vercel.app/about" />
       </Helmet>
 
       {/* Page Header */}
