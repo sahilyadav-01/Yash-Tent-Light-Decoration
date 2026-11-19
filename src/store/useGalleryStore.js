@@ -1,4 +1,14 @@
 import { create } from 'zustand';
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  serverTimestamp,
+  writeBatch,
+} from 'firebase/firestore';
+import { db } from '../lib/firebase';
 
 const INITIAL_GALLERY_ITEMS = [
   {
@@ -93,10 +103,9 @@ const INITIAL_GALLERY_ITEMS = [
   }
 ];
 
-export const useGalleryStore = create((set) => ({
-  items: JSON.parse(localStorage.getItem('yash_gallery_items')) || INITIAL_GALLERY_ITEMS,
+let stopGalleryListener;
 
-  addItem: (itemData) => set((state) => {
+const normalizeSource = (itemData) => {
     // Helper to format YouTube link into embed link if needed
     let finalSrc = itemData.src;
     if (itemData.type === 'video' && finalSrc) {
@@ -109,29 +118,60 @@ export const useGalleryStore = create((set) => ({
       }
     }
 
-    const newItem = {
-      id: Date.now(),
+    return {
       type: itemData.type || 'image',
       src: finalSrc,
       title: itemData.title || 'Event Decoration',
       category: itemData.category || 'Weddings',
       thumbnail: itemData.thumbnail || (itemData.type === 'video' ? 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' : finalSrc),
-      date: new Date().toISOString().split('T')[0]
+      date: new Date().toISOString().split('T')[0],
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
     };
+};
 
-    const updated = [newItem, ...state.items];
-    localStorage.setItem('yash_gallery_items', JSON.stringify(updated));
-    return { items: updated };
-  }),
+export const useGalleryStore = create((set) => ({
+  items: INITIAL_GALLERY_ITEMS,
+  isLoading: true,
+  error: null,
 
-  deleteItem: (id) => set((state) => {
-    const updated = state.items.filter((item) => item.id !== id);
-    localStorage.setItem('yash_gallery_items', JSON.stringify(updated));
-    return { items: updated };
-  }),
+  subscribe: () => {
+    if (stopGalleryListener) return stopGalleryListener;
+    stopGalleryListener = onSnapshot(
+      collection(db, 'galleryItems'),
+      (snapshot) => {
+        const remoteItems = snapshot.docs
+          .map((item) => ({ id: item.id, ...item.data() }))
+          .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+        set({ items: remoteItems.length ? remoteItems : INITIAL_GALLERY_ITEMS, isLoading: false, error: null });
+      },
+      (error) => {
+        console.error('Unable to load gallery:', error);
+        set({ error: error.message, isLoading: false });
+      },
+    );
+    return stopGalleryListener;
+  },
 
-  resetDefaultGallery: () => set(() => {
-    localStorage.setItem('yash_gallery_items', JSON.stringify(INITIAL_GALLERY_ITEMS));
-    return { items: INITIAL_GALLERY_ITEMS };
-  })
+  addItem: async (itemData) => {
+    if (itemData.src?.startsWith('data:') && itemData.src.length > 700000) {
+      throw new Error('Uploaded media is too large for Firestore. Please use a hosted URL.');
+    }
+    return addDoc(collection(db, 'galleryItems'), normalizeSource(itemData));
+  },
+
+  deleteItem: (id) => deleteDoc(doc(db, 'galleryItems', String(id))),
+
+  resetDefaultGallery: async () => {
+    const batch = writeBatch(db);
+    useGalleryStore.getState().items.forEach((item) => {
+      if (typeof item.id === 'string') batch.delete(doc(db, 'galleryItems', item.id));
+    });
+    INITIAL_GALLERY_ITEMS.forEach((item) => {
+      const reference = doc(collection(db, 'galleryItems'));
+      const { id: _id, ...data } = item;
+      batch.set(reference, { ...data, createdAt: serverTimestamp(), updatedAt: serverTimestamp() });
+    });
+    await batch.commit();
+  },
 }));

@@ -22,7 +22,7 @@ const Register = () => {
       toast.success(`Account created successfully! Welcome, ${user.name}`);
       navigate('/dashboard');
     } catch (error) {
-      toast.error('Registration failed. Please try again.');
+      toast.error(error.message || 'Registration failed. Please try again.');
     } finally {
       setIsLoading(false);
     }

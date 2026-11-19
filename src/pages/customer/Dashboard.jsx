@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../../store/useAuthStore';
@@ -7,7 +8,9 @@ import { FaDownload, FaCalendarAlt, FaMapMarkerAlt, FaRupeeSign } from 'react-ic
 
 const CustomerDashboard = () => {
   const { user } = useAuthStore();
-  const { getUserBookings } = useBookingStore();
+  const { getUserBookings, subscribe } = useBookingStore();
+
+  useEffect(() => subscribe(user), [subscribe, user]);
   
   const userBookings = getUserBookings(user?.email);
 

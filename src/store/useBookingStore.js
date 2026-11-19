@@ -1,53 +1,91 @@
 import { create } from 'zustand';
+import {
+  addDoc,
+  collection,
+  doc,
+  onSnapshot,
+  query,
+  serverTimestamp,
+  updateDoc,
+  where,
+} from 'firebase/firestore';
+import { auth, db } from '../lib/firebase';
 
-// Mock Bookings Data
-const MOCK_BOOKINGS = [
-  {
-    id: 'BKG-1001',
-    eventType: 'Wedding',
-    date: '2026-12-15',
-    venue: 'Royal Palace, Lucknow',
-    status: 'Confirmed',
-    package: 'Platinum',
-    amount: 1500000,
-    customerEmail: 'customer@example.com'
-  },
-  {
-    id: 'BKG-1002',
-    eventType: 'Corporate',
-    date: '2026-11-20',
-    venue: 'Taj Hotel',
-    status: 'Pending',
-    package: 'Gold',
-    amount: 500000,
-    customerEmail: 'customer@example.com'
-  }
-];
+let stopBookingListener;
+let activeUserId;
+
+const mapBooking = (snapshot) => ({ id: snapshot.id, ...snapshot.data() });
 
 export const useBookingStore = create((set, get) => ({
-  bookings: JSON.parse(localStorage.getItem('yash_bookings')) || MOCK_BOOKINGS,
-  
-  addBooking: (bookingData) => set((state) => {
-    const newBooking = {
-      ...bookingData,
-      id: `BKG-${Math.floor(1000 + Math.random() * 9000)}`,
-      status: 'Pending',
-      amount: Math.floor(Math.random() * 500000) + 50000 // Mock amount
-    };
-    const updatedBookings = [newBooking, ...state.bookings];
-    localStorage.setItem('yash_bookings', JSON.stringify(updatedBookings));
-    return { bookings: updatedBookings };
-  }),
+  bookings: [],
+  isLoading: false,
+  error: null,
 
-  getUserBookings: (email) => {
-    return get().bookings.filter(b => b.customerEmail === email);
-  },
-  
-  updateBookingStatus: (id, status) => set((state) => {
-    const updatedBookings = state.bookings.map(b => 
-      b.id === id ? { ...b, status } : b
+  subscribe: (user) => {
+    if (!user || activeUserId === `${user.id}:${user.role}`) return stopBookingListener;
+    stopBookingListener?.();
+    activeUserId = `${user.id}:${user.role}`;
+    set({ isLoading: true, error: null });
+
+    const bookingsRef = collection(db, 'bookings');
+    const bookingsQuery = user.role === 'admin'
+      ? bookingsRef
+      : query(bookingsRef, where('userId', '==', user.id));
+
+    stopBookingListener = onSnapshot(
+      bookingsQuery,
+      (snapshot) => {
+        const bookings = snapshot.docs
+          .map(mapBooking)
+          .sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+        set({ bookings, isLoading: false, error: null });
+      },
+      (error) => {
+        console.error('Unable to load bookings:', error);
+        set({ error: error.message, isLoading: false });
+      },
     );
-    localStorage.setItem('yash_bookings', JSON.stringify(updatedBookings));
-    return { bookings: updatedBookings };
-  }),
+
+    return stopBookingListener;
+  },
+
+  clear: () => {
+    stopBookingListener?.();
+    stopBookingListener = undefined;
+    activeUserId = undefined;
+    set({ bookings: [], isLoading: false, error: null });
+  },
+
+  addBooking: async (bookingData) => {
+    const firebaseUser = auth.currentUser;
+    if (!firebaseUser) throw new Error('Please sign in before making a booking.');
+
+    const amountByPackage = { Silver: 50000, Gold: 150000, Platinum: 300000, Custom: 0 };
+    const booking = {
+      name: bookingData.name.trim(),
+      phone: bookingData.phone.trim(),
+      email: bookingData.email.trim(),
+      eventType: bookingData.eventType,
+      package: bookingData.package,
+      date: bookingData.eventDate,
+      venue: bookingData.address?.trim() || 'To be confirmed',
+      guests: bookingData.guests,
+      requirements: bookingData.requirements?.trim() || '',
+      userId: firebaseUser.uid,
+      customerEmail: firebaseUser.email,
+      status: 'Pending',
+      amount: amountByPackage[bookingData.package] ?? 0,
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    };
+
+    const reference = await addDoc(collection(db, 'bookings'), booking);
+    return { id: reference.id, ...booking };
+  },
+
+  getUserBookings: (email) => get().bookings.filter((booking) => booking.customerEmail === email),
+
+  updateBookingStatus: async (id, status) => {
+    await updateDoc(doc(db, 'bookings', id), { status, updatedAt: serverTimestamp() });
+  },
 }));

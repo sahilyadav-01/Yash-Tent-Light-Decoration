@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import { useAuthStore } from '../../store/useAuthStore';
@@ -24,7 +24,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 
 const AdminDashboard = () => {
   const { user } = useAuthStore();
-  const { bookings, updateBookingStatus } = useBookingStore();
+  const { bookings, updateBookingStatus, subscribe } = useBookingStore();
   const { items: galleryItems, addItem: addGalleryItem, deleteItem: deleteGalleryItem, resetDefaultGallery } = useGalleryStore();
   
   const [activeTab, setActiveTab] = useState('overview');
@@ -40,6 +40,8 @@ const AdminDashboard = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [filterGalleryCategory, setFilterGalleryCategory] = useState('All');
 
+  useEffect(() => subscribe(user), [subscribe, user]);
+
   // Analytics Math
   const totalRevenue = useMemo(() => bookings.filter(b => b.status === 'Confirmed').reduce((acc, curr) => acc + curr.amount, 0), [bookings]);
   const pendingRequests = useMemo(() => bookings.filter(b => b.status === 'Pending').length, [bookings]);
@@ -52,8 +54,8 @@ const AdminDashboard = () => {
     const file = e.target.files[0];
     if (!file) return;
 
-    if (file.size > 25 * 1024 * 1024) {
-      toast.error('File size exceeds 25MB limit. Please use a smaller file or paste a web/YouTube URL.');
+    if (file.size > 500 * 1024) {
+      toast.error('Direct uploads must be under 500KB. For larger media, paste a hosted URL.');
       return;
     }
 
@@ -66,7 +68,7 @@ const AdminDashboard = () => {
     reader.readAsDataURL(file);
   };
 
-  const handleAddMedia = (e) => {
+  const handleAddMedia = async (e) => {
     e.preventDefault();
     const finalSource = mediaUrl || previewData;
 
@@ -82,7 +84,7 @@ const AdminDashboard = () => {
 
     setIsSubmitting(true);
     try {
-      addGalleryItem({
+      await addGalleryItem({
         type: mediaType,
         src: finalSource,
         title: title.trim(),
@@ -96,17 +98,21 @@ const AdminDashboard = () => {
       setMediaUrl('');
       setThumbnailUrl('');
       setPreviewData('');
-    } catch (err) {
-      toast.error('Failed to add media. Please try again.');
+    } catch (error) {
+      toast.error(error.message || 'Failed to add media. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleDeleteItem = (id, itemTitle) => {
+  const handleDeleteItem = async (id, itemTitle) => {
     if (window.confirm(`Are you sure you want to delete "${itemTitle}" from the gallery?`)) {
-      deleteGalleryItem(id);
-      toast.success('Media removed from gallery.');
+      try {
+        await deleteGalleryItem(id);
+        toast.success('Media removed from gallery.');
+      } catch (error) {
+        toast.error(error.message || 'Unable to remove media.');
+      }
     }
   };
 
@@ -331,10 +337,14 @@ const AdminDashboard = () => {
                     </p>
                   </div>
                   <button
-                    onClick={() => {
+                    onClick={async () => {
                       if (window.confirm('Reset gallery back to default initial items?')) {
-                        resetDefaultGallery();
-                        toast.success('Gallery reset to default items.');
+                        try {
+                          await resetDefaultGallery();
+                          toast.success('Gallery reset to default items.');
+                        } catch (error) {
+                          toast.error(error.message || 'Unable to reset the gallery.');
+                        }
                       }
                     }}
                     className="text-xs text-gray-500 hover:text-red-500 underline"

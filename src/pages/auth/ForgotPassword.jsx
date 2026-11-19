@@ -4,20 +4,25 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { FaEnvelope } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
+import { useAuthStore } from '../../store/useAuthStore';
 
 const ForgotPassword = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isLoading, setIsLoading] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const resetPassword = useAuthStore((state) => state.resetPassword);
 
   const onSubmit = async (data) => {
     setIsLoading(true);
-    // Mock API Call
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      await resetPassword(data.email);
       setIsSent(true);
       toast.success('Password reset link sent to your email!');
-    }, 1500);
+    } catch (error) {
+      toast.error(error.message || 'Unable to send the reset link.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

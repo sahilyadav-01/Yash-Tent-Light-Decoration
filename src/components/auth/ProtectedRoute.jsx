@@ -2,8 +2,12 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../../store/useAuthStore';
 
 export const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, isInitializing } = useAuthStore();
   const location = useLocation();
+
+  if (isInitializing) {
+    return <div className="min-h-screen grid place-items-center">Loading account...</div>;
+  }
 
   if (!isAuthenticated) {
     return <Navigate to="/login" state={{ from: location }} replace />;
@@ -13,8 +17,12 @@ export const ProtectedRoute = ({ children }) => {
 };
 
 export const AdminRoute = ({ children }) => {
-  const { isAuthenticated, user } = useAuthStore();
+  const { isAuthenticated, isInitializing, user } = useAuthStore();
   const location = useLocation();
+
+  if (isInitializing) {
+    return <div className="min-h-screen grid place-items-center">Loading account...</div>;
+  }
 
   if (!isAuthenticated) {
     return <Navigate to="/login" state={{ from: location }} replace />;

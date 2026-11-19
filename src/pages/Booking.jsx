@@ -32,7 +32,7 @@ const Booking = () => {
       // await emailjs.send('service_dummy', 'template_dummy', data, 'public_key_dummy');
       
       // Add to store
-      addBooking({
+      await addBooking({
         ...data,
         customerEmail: user.email,
       });
