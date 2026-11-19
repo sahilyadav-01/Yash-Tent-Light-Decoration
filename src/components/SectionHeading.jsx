@@ -8,7 +8,7 @@ const SectionHeading = ({ title, subtitle, light = false }) => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className={`text-4xl md:text-5xl font-serif font-bold mb-4 ${light ? 'text-white' : 'text-[#1F2937]'}`}
+        className={`text-4xl md:text-5xl font-serif font-bold mb-4 ${light ? 'text-white' : 'text-[#1F2937] dark:text-white'}`}
       >
         {title}
       </motion.h2>
@@ -25,7 +25,7 @@ const SectionHeading = ({ title, subtitle, light = false }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className={`max-w-2xl mx-auto text-lg ${light ? 'text-gray-300' : 'text-gray-600'}`}
+          className={`max-w-2xl mx-auto text-lg ${light ? 'text-gray-300' : 'text-gray-600 dark:text-gray-300'}`}
         >
           {subtitle}
         </motion.p>
