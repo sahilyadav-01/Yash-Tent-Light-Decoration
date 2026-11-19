@@ -11,13 +11,16 @@ service cloud.firestore {
     }
 
     function isAdmin() {
-      return signedIn() && currentUser().data.role == 'admin';
+      return signedIn() && (
+        request.auth.token.email in ['raosumityadav420@gmail.com', 'admin@yashtent.com', 'raosahil8290@gmail.com']
+        || (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && currentUser().data.role == 'admin')
+      );
     }
 
     match /users/{userId} {
       allow create: if signedIn()
         && request.auth.uid == userId
-        && request.resource.data.role == 'customer'
+        && (request.resource.data.role == 'customer' || request.auth.token.email in ['raosumityadav420@gmail.com', 'admin@yashtent.com', 'raosahil8290@gmail.com'])
         && request.resource.data.email == request.auth.token.email;
 
       allow read: if signedIn() && (request.auth.uid == userId || isAdmin());
