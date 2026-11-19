@@ -260,11 +260,21 @@ This project is licensed under the terms of the [LICENSE](./LICENSE) file.
 
 ---
 
+## 💬 Contact & Support
+
+- **WhatsApp:** [+91 9680709044](https://wa.me/919680709044) (Sumit / Kuku Yadav)
+- **Phone:** [+91 9818222764](tel:+919818222764) (Surendar Kumar)
+- **Email:** info@yashtent.com
+- **Address:** Near S'K One Tech Support, Palawa, Rajasthan 301706
+
+---
+
 ## 👨‍💻 Developer
 
 <div align="center">
 
 **Author:** Sahil Yadav  
-**Copyright:** Sahil Yadav
+**Copyright:** Sahil Yadav  
+**WhatsApp:** [+91 9680709044](https://wa.me/919680709044)
 
 </div>

@@ -19,7 +19,13 @@ const Footer = () => {
               <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#C8102E] hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                 <FaInstagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#C8102E] hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+              <a 
+                href="https://wa.me/919680709044" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Chat on WhatsApp"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+              >
                 <FaWhatsapp size={18} />
               </a>
             </div>
@@ -69,10 +75,22 @@ const Footer = () => {
                 <span className="text-sm">Near S'K One Tech Support, Palawa, Rajasthan 301706</span>
               </li>
               <li className="flex items-start gap-3 text-gray-400">
-                <FaPhoneAlt className="text-[#D4AF37] mt-1" />
-                <div className="flex flex-col">
-                  <span className="text-sm">Sumit (kuku) Yadav: +91 9680709044</span>
-                  <span className="text-sm">Surendar kumar: +91 9818222764</span>
+                <FaPhoneAlt className="text-[#D4AF37] mt-1 shrink-0" />
+                <div className="flex flex-col space-y-1">
+                  <a 
+                    href="https://wa.me/919680709044" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-sm hover:text-[#25D366] transition-colors"
+                  >
+                    Sumit (kuku) Yadav: +91 9680709044 (WhatsApp)
+                  </a>
+                  <a 
+                    href="tel:+919818222764" 
+                    className="text-sm hover:text-white transition-colors"
+                  >
+                    Surendar kumar: +91 9818222764
+                  </a>
                 </div>
               </li>
               <li className="flex items-center gap-3">

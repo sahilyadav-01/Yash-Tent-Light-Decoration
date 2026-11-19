@@ -106,7 +106,9 @@ const TermsOfService = () => {
               <div className="bg-gray-50 rounded-xl p-5 border border-gray-200 text-sm space-y-2">
                 <p><strong>Yash Tent & Light Decoration</strong></p>
                 <p>Near S'K One Tech Support, Palawa, Rajasthan 301706</p>
-                <p>Sumit (kuku) Yadav: +91 9680709044 | Surendar kumar: +91 9818222764</p>
+                <p>
+                  WhatsApp / Phone: <a href="https://wa.me/919680709044" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-medium">+91 9680709044</a> (Sumit Yadav) | <a href="tel:+919818222764" className="hover:underline">+91 9818222764</a> (Surendar Kumar)
+                </p>
                 <p>Email: <a href="mailto:info@yashtent.com" className="text-[#C8102E] hover:underline">info@yashtent.com</a></p>
                 <p className="pt-2 text-xs text-gray-500">Copyright &copy; {new Date().getFullYear()} Sahil Yadav. All Rights Reserved.</p>
               </div>

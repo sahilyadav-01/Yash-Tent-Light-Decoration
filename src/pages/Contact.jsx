@@ -76,8 +76,24 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-[#1F2937]">Phone / WhatsApp</h4>
-                      <p className="text-gray-600">Sumit (kuku) Yadav: +91 9680709044</p>
-                      <p className="text-gray-600">Surendar kumar: +91 9818222764</p>
+                      <p className="text-gray-600">
+                        <a 
+                          href="https://wa.me/919680709044" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="hover:text-[#25D366] transition-colors"
+                        >
+                          Sumit (kuku) Yadav: +91 9680709044 (WhatsApp)
+                        </a>
+                      </p>
+                      <p className="text-gray-600">
+                        <a 
+                          href="tel:+919818222764" 
+                          className="hover:text-[#C8102E] transition-colors"
+                        >
+                          Surendar kumar: +91 9818222764
+                        </a>
+                      </p>
                     </div>
                   </li>
                   
@@ -104,7 +120,13 @@ const Contact = () => {
                 </ul>
                 
                 <div className="mt-8 pt-8 border-t border-gray-100 flex justify-center gap-4">
-                  <a href="#" className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:-translate-y-1 transition-transform shadow-md">
+                  <a 
+                    href="https://wa.me/919680709044" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:-translate-y-1 transition-transform shadow-md"
+                    title="Chat on WhatsApp (+91 9680709044)"
+                  >
                     <FaWhatsapp size={24} />
                   </a>
                 </div>
