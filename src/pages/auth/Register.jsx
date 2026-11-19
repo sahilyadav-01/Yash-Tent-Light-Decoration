@@ -7,6 +7,20 @@ import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
 import logoImg from '../../assets/logo.png';
 
+const formatRegisterError = (error) => {
+  const code = error?.code || '';
+  if (code === 'auth/email-already-in-use') {
+    return 'This email is already registered! Please go to Login, or click "Forgot password?" to reset it.';
+  }
+  if (code === 'auth/weak-password') {
+    return 'Password is too weak. Please use at least 6 characters.';
+  }
+  if (code === 'auth/invalid-email') {
+    return 'Please enter a valid email address.';
+  }
+  return error?.message?.replace(/^Firebase:\s*/, '') || 'Registration failed. Please try again.';
+};
+
 const Register = () => {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
   const [isLoading, setIsLoading] = useState(false);
@@ -20,9 +34,13 @@ const Register = () => {
     try {
       const user = await registerUser(data);
       toast.success(`Account created successfully! Welcome, ${user.name}`);
-      navigate('/dashboard');
+      if (user.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/dashboard');
+      }
     } catch (error) {
-      toast.error(error.message || 'Registration failed. Please try again.');
+      toast.error(formatRegisterError(error));
     } finally {
       setIsLoading(false);
     }
