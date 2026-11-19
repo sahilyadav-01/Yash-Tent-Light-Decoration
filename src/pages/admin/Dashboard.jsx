@@ -5,7 +5,6 @@ import { useAuthStore } from '../../store/useAuthStore';
 import { useBookingStore } from '../../store/useBookingStore';
 import { useGalleryStore } from '../../store/useGalleryStore';
 import { 
-  FaUsers, 
   FaCalendarCheck, 
   FaRupeeSign, 
   FaChartLine, 

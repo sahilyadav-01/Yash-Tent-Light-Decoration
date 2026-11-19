@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
-import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
 import { useBookingStore } from '../store/useBookingStore';
@@ -10,14 +9,12 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const Booking = () => {
-  const { register, handleSubmit, formState: { errors }, watch } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const addBooking = useBookingStore(state => state.addBooking);
   const { isAuthenticated, user } = useAuthStore();
   const navigate = useNavigate();
-
-  const watchEventType = watch("eventType", "Wedding");
 
   const onSubmit = async (data) => {
     if (!isAuthenticated) {
