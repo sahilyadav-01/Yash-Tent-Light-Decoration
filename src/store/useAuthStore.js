@@ -10,12 +10,23 @@ import {
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 
-const toAppUser = (firebaseUser, profile = {}) => ({
-  id: firebaseUser.uid,
-  name: profile.name || firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'Customer',
-  email: firebaseUser.email,
-  role: profile.role || 'customer',
-});
+const ADMIN_EMAILS = [
+  'raosumityadav420@gmail.com',
+  'admin@yashtent.com',
+  'raosahil8290@gmail.com'
+];
+
+const isAdminEmail = (email) => ADMIN_EMAILS.includes((email || '').toLowerCase().trim());
+
+const toAppUser = (firebaseUser, profile = {}) => {
+  const isAdmin = isAdminEmail(firebaseUser.email) || profile.role === 'admin';
+  return {
+    id: firebaseUser.uid,
+    name: profile.name || firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'Customer',
+    email: firebaseUser.email,
+    role: isAdmin ? 'admin' : (profile.role || 'customer'),
+  };
+};
 
 let stopAuthListener;
 
@@ -41,10 +52,11 @@ export const useAuthStore = create((set) => ({
         let profile = snapshot.exists() ? snapshot.data() : null;
 
         if (!profile) {
+          const role = isAdminEmail(firebaseUser.email) ? 'admin' : 'customer';
           profile = {
             name: firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'Customer',
             email: firebaseUser.email,
-            role: 'customer',
+            role,
             createdAt: serverTimestamp(),
             updatedAt: serverTimestamp(),
           };
@@ -78,10 +90,11 @@ export const useAuthStore = create((set) => ({
     const credential = await createUserWithEmailAndPassword(auth, email.trim(), password);
     await updateProfile(credential.user, { displayName: name.trim() });
 
+    const role = isAdminEmail(credential.user.email) ? 'admin' : 'customer';
     const profile = {
       name: name.trim(),
       email: credential.user.email,
-      role: 'customer',
+      role,
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     };

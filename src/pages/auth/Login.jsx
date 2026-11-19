@@ -7,6 +7,23 @@ import { FaEnvelope, FaLock, FaExclamationTriangle, FaHourglassHalf } from 'reac
 import { Helmet } from 'react-helmet-async';
 import logoImg from '../../assets/logo.png';
 
+const formatAuthError = (error) => {
+  const code = error?.code || '';
+  if (code === 'auth/invalid-credential' || code === 'auth/user-not-found' || code === 'auth/wrong-password') {
+    return 'Invalid email or password. If you have not created an account yet, please click "Register here" below.';
+  }
+  if (code === 'auth/too-many-requests') {
+    return 'Too many failed login attempts. Please wait a moment or reset your password.';
+  }
+  if (code === 'auth/user-disabled') {
+    return 'This account has been disabled. Please contact support.';
+  }
+  if (code === 'auth/network-request-failed') {
+    return 'Network connection error. Please check your internet connection.';
+  }
+  return error?.message?.replace(/^Firebase:\s*/, '') || 'Login failed. Please check your credentials.';
+};
+
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +64,7 @@ const Login = () => {
         navigate(from, { replace: true });
       }
     } catch (error) {
-      toast.error(error.message || 'Login failed. Please check your credentials.');
+      toast.error(formatAuthError(error));
       setRateLimitStatus(getRateLimitStatus());
     } finally {
       setIsLoading(false);
